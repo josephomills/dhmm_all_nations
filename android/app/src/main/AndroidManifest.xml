@@ -1,7 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dhmm190.all_nations">
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
    <application
-        android:label="all_nations"
+        android:label="All Nations"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
