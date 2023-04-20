@@ -50,7 +50,7 @@ class BooksPage extends StatelessWidget {
                 },
                 errorWidget: (context, url, error) {
                   return Container(
-                    color: Colors.red,
+                    color: Colors.orange,
                     width: 100,
                     height: 250,
                   );
