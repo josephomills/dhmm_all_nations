@@ -15,7 +15,7 @@ class IndexPage extends StatelessWidget {
       routes: const [
         VideosRoute(),
         ConferencesRoute(),
-        BooksRoute(),
+        CollectionsRoute(),
         DonateRoute(),
         MoreRoute(),
       ],

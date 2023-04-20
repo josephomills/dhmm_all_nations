@@ -19,10 +19,8 @@ class MorePage extends StatelessWidget {
         return [const AppBarWidget()];
       },
       body: ListView(
-        physics: const NeverScrollableScrollPhysics(),
-        padding: const EdgeInsets.symmetric(vertical: 0),
         primary: false,
-        shrinkWrap: true,
+        padding: const EdgeInsets.symmetric(vertical: 0),
         children: [
           MoreTileWidget(
             icon: LineAwesomeIcons.user,

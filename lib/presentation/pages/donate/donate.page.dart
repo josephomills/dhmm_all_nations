@@ -1,3 +1,4 @@
+import 'package:all_nations/application/app/app_bloc.dart';
 import 'package:all_nations/application/donate/donate_bloc.dart';
 import 'package:all_nations/domain/core/config/injectable.dart';
 import 'package:all_nations/presentation/widgets/appbar.widget.dart';
@@ -61,12 +62,19 @@ class DonatePage extends StatelessWidget implements AutoRouteWrapper {
               ),
               const SizedBox(height: 48),
               GestureDetector(
-                child: Image.asset(
-                  "assets/images/logo/pay-by-bank-app.png",
-                  height: 70,
-                  // width: 150,
-                  scale: 0.5,
-                  fit: BoxFit.contain,
+                child: BlocBuilder<AppBloc, AppState>(
+                  bloc: getIt<AppBloc>(),
+                  builder: (context, state) {
+                    return Image.asset(
+                      state.themeMode == ThemeMode.dark
+                          ? "assets/images/logo/pay-by-bank-app-white.png"
+                          : "assets/images/logo/pay-by-bank-app.png",
+                      height: 70,
+                      // width: 150,
+                      scale: 0.5,
+                      fit: BoxFit.contain,
+                    );
+                  },
                 ),
                 onTap: () {
                   // Show popup with bank details

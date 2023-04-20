@@ -13,11 +13,13 @@ class AppRouter extends $AppRouter {
       children: [
         AutoRoute(page: VideosRoute.page, path: "videos"),
         AutoRoute(page: ConferencesRoute.page, path: "conferences"),
-        AutoRoute(page: BooksRoute.page, path: "books"),
+        AutoRoute(page: CollectionsRoute.page, path: "collections"),
         AutoRoute(page: DonateRoute.page, path: "donate"),
         AutoRoute(page: MoreRoute.page, path: "more"),
       ],
     ),
+    AutoRoute(page: BooksRoute.page, path: "/books"),
+    AutoRoute(page: EpubRoute.page, path: "/epub"),
     AutoRoute(
       page: SettingsRoute.page,
       path: "/settings",

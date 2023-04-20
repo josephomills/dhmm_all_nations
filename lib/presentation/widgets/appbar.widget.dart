@@ -46,11 +46,13 @@ class AppBarWidget extends StatelessWidget {
               fit: BoxFit.cover,
               width: 300,
             ),
-            background: Image.asset(
-              "assets/images/logo/logo_dark.png",
-              fit: BoxFit.cover,
-            ),
+            // background: Image.asset(
+            //   "assets/images/logo/logo_dark.png",
+            //   fit: BoxFit.cover,
+            // ),
             collapseMode: CollapseMode.pin,
+            expandedTitleScale: 1,
+            stretchModes: const [StretchMode.fadeTitle],
           ),
         );
       },

@@ -36,7 +36,6 @@ class AllNations extends StatelessWidget {
 
   final _appRouter = AppRouter();
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AppBloc, AppState>(
@@ -47,7 +46,7 @@ class AllNations extends StatelessWidget {
       builder: (context, state) {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
-          title: 'DHMM All Nations',
+          title: 'All Nations',
           themeMode: state.themeMode,
           theme: AppTheme.light,
           darkTheme: AppTheme.dark,
