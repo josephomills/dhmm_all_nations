@@ -50,6 +50,7 @@ dependencies:
   multi_image_layout: ^0.0.7
   flutter_linkify: ^6.0.0
   youtube_player_flutter: ^8.1.2
+  visibility_detector: ^0.4.0+2
 
 dev_dependencies:
   flutter_test:
@@ -85,11 +86,11 @@ flutter:
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
 
-flutter_icons:
+flutter_launcher_icons:
   android: true
   ios: true
   remove_alpha_ios: true
-  image_path: "assets/images/icons/icon.png"
+  image_path: "assets/images/icons/icon_blue.png"
   adaptive_icon_background: "#1A2C42"
   adaptive_icon_foreground: "assets/images/icons/android12_icon.png"
 

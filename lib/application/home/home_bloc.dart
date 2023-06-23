@@ -21,21 +21,24 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeEvent>((event, emit) async {
       await event.map<FutureOr<void>>(
         started: (e) async {
-          emit(state.copyWith(isLoading: true));
-
           add(const HomeEvent.carouselsFetched());
           add(const HomeEvent.postsFetched());
-
-          emit(state.copyWith(isLoading: false));
         },
         postsFetched: (e) async {
+          emit(state.copyWith(isLoading: true));
           final failureOrPosts = await _homeFacade.getPosts();
-          emit(state.copyWith(failureOrPostsOption: some(failureOrPosts)));
+          emit(state.copyWith(
+            isLoading: false,
+            failureOrPostsOption: some(failureOrPosts),
+          ));
         },
         carouselsFetched: (e) async {
+          emit(state.copyWith(isLoading: true));
           final failureOrCarousels = await _homeFacade.getCarouselImages();
           emit(state.copyWith(
-              failureOrCarouselObjectsOption: some(failureOrCarousels)));
+            isLoading: false,
+            failureOrCarouselObjectsOption: some(failureOrCarousels),
+          ));
         },
         postLiked: (e) {},
       );
