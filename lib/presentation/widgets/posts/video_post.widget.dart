@@ -8,6 +8,7 @@ import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:moment_dart/moment_dart.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoPostWidget extends StatelessWidget {
@@ -45,24 +46,39 @@ class VideoPostWidget extends StatelessWidget {
             // Video
             LayoutBuilder(
               builder: (context, constraints) {
-                return YoutubePlayerBuilder(
-                  player: YoutubePlayer(
-                    width: constraints.maxWidth,
-                    controller: YoutubePlayerController(
-                      initialVideoId:
-                          YoutubePlayer.convertUrlToId(post.urls!.first)!,
-                      flags: YoutubePlayerFlags(
-                        autoPlay: false,
-                        isLive: post.isLive!,
-                      ),
-                    ),
-                    liveUIColor: Theme.of(context).colorScheme.error,
-                    showVideoProgressIndicator: true,
-                    controlsTimeOut: const Duration(seconds: 5),
+                var youtubeCtrl = YoutubePlayerController(
+                  initialVideoId:
+                      YoutubePlayer.convertUrlToId(post.urls!.first)!,
+                  flags: YoutubePlayerFlags(
+                    autoPlay: false,
+                    isLive: post.isLive!,
                   ),
-                  builder: (context, player) {
-                    return player;
+                );
+
+                return VisibilityDetector(
+                  key: const Key("yt-player"),
+                  onVisibilityChanged: (info) {
+                    var visible = info.visibleFraction > 0.6;
+                    if (!visible) {
+                      youtubeCtrl.pause();
+                    }
                   },
+                  child: YoutubePlayerBuilder(
+                    player: YoutubePlayer(
+                      width: constraints.maxWidth,
+                      controller: youtubeCtrl,
+                      liveUIColor: Theme.of(context).colorScheme.error,
+                      showVideoProgressIndicator: true,
+                      controlsTimeOut: const Duration(seconds: 5),
+                    ),
+                    builder: (context, player) {
+                      return Column(
+                        children: [
+                          player,
+                        ],
+                      );
+                    },
+                  ),
                 );
               },
             ),
