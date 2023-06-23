@@ -25,20 +25,20 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
       headerSliverBuilder: (context, innerBoxIsScrolled) {
         return [const AppBarWidget()];
       },
-      body: BlocConsumer<HomeBloc, HomeState>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          final posts = state.failureOrPostsOption
-              .getOrElse(() => const Right([]))
-              .getOrElse(() => []);
-          final carouselImages = state.failureOrCarouselObjectsOption
-              .getOrElse(() => const Right([]))
-              .getOrElse(() => []);
+      body: RefreshIndicator(
+        onRefresh: () async =>
+            context.read<HomeBloc>().add(const HomeEvent.started()),
+        child: BlocConsumer<HomeBloc, HomeState>(
+          listener: (context, state) {},
+          builder: (context, state) {
+            final posts = state.failureOrPostsOption
+                .getOrElse(() => const Right([]))
+                .getOrElse(() => []);
+            final carouselImages = state.failureOrCarouselObjectsOption
+                .getOrElse(() => const Right([]))
+                .getOrElse(() => []);
 
-          return RefreshIndicator(
-            onRefresh: () async =>
-                context.read<HomeBloc>().add(const HomeEvent.started()),
-            child: Stack(
+            return Stack(
               children: [
                 ListView(
                   primary: true,
@@ -91,9 +91,9 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
                 ),
                 if (state.isLoading) const LoaderWidget(),
               ],
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

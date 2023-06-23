@@ -49,84 +49,81 @@ class ConferencesPage extends StatelessWidget implements AutoRouteWrapper {
 
             return Stack(
               children: [
-                // show empty state
-                if (state.failureOrConferencesOption.isNone() &&
-                    !state.isLoading)
-                  const EmptyStateWidget(
-                    asset:
-                        "assets/images/illustrations/undraw_conference_call.png",
-                    text:
-                        "No conference available at the moment. Please come back later.",
-                  ),
-                if (state.failureOrConferencesOption.isSome())
-                  ListView(
-                    primary: false,
-                    padding: const EdgeInsets.only(bottom: 32),
-                    children: [
-                      RectangleConferenceWidget(
-                        width: ResponsiveWrapper.of(context).scaledWidth,
-                        roundCorners: false,
-                        conference: allConferences.firstWhere(
-                          (c) => c.featured == true,
-                          orElse: () => allConferences.first,
-                        ),
+                state.failureOrConferencesOption.isSome()
+                    ? ListView(
+                        primary: false,
+                        padding: const EdgeInsets.only(bottom: 32),
+                        children: [
+                          RectangleConferenceWidget(
+                            width: ResponsiveWrapper.of(context).scaledWidth,
+                            roundCorners: false,
+                            conference: allConferences.firstWhere(
+                              (c) => c.featured == true,
+                              orElse: () => allConferences.first,
+                            ),
+                          ),
+                          const SizedBox(height: 24),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text(
+                              "Argentina Tour",
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 150,
+                            child: ListView.builder(
+                              primary: false,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              itemCount: allConferences.length,
+                              itemBuilder: (_, x) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: RectangleConferenceWidget(
+                                    width: 150,
+                                    square: true,
+                                    conference: allConferences[x],
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                          const SizedBox(height: 24),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text(
+                              "Asia Tour",
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 150,
+                            child: ListView.builder(
+                              primary: false,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              itemCount: allConferences.length,
+                              itemBuilder: (_, x) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: RectangleConferenceWidget(
+                                    width: 150,
+                                    square: true,
+                                    conference: allConferences[x],
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      )
+                    : const EmptyStateWidget(
+                        asset:
+                            "assets/images/illustrations/undraw_conference_call.png",
+                        text:
+                            "No conference available at the moment. Please come back later.",
                       ),
-                      const SizedBox(height: 24),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: Text(
-                          "Argentina Tour",
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 150,
-                        child: ListView.builder(
-                          primary: false,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: allConferences.length,
-                          itemBuilder: (_, x) {
-                            return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: RectangleConferenceWidget(
-                                width: 150,
-                                square: true,
-                                conference: allConferences[x],
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                      const SizedBox(height: 24),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: Text(
-                          "Asia Tour",
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 150,
-                        child: ListView.builder(
-                          primary: false,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: allConferences.length,
-                          itemBuilder: (_, x) {
-                            return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: RectangleConferenceWidget(
-                                width: 150,
-                                square: true,
-                                conference: allConferences[x],
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
                 if (state.isLoading) const LoaderWidget(),
               ],
             );

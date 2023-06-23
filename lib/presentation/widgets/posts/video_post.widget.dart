@@ -52,6 +52,7 @@ class VideoPostWidget extends StatelessWidget {
                   flags: YoutubePlayerFlags(
                     autoPlay: false,
                     isLive: post.isLive!,
+                    loop: true,
                   ),
                 );
 
@@ -70,6 +71,8 @@ class VideoPostWidget extends StatelessWidget {
                       liveUIColor: Theme.of(context).colorScheme.error,
                       showVideoProgressIndicator: true,
                       controlsTimeOut: const Duration(seconds: 5),
+                      bufferIndicator:
+                          const CircularProgressIndicator.adaptive(),
                     ),
                     builder: (context, player) {
                       return Column(
