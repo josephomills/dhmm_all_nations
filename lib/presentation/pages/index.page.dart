@@ -13,9 +13,9 @@ class IndexPage extends StatelessWidget {
     return AutoTabsScaffold(
       homeIndex: NavIndex.videos,
       routes: const [
-        VideosRoute(),
+        HomeRoute(),
         ConferencesRoute(),
-        CollectionsRoute(),
+        BooksRoute(),
         DonateRoute(),
         MoreRoute(),
       ],

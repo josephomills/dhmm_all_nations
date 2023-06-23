@@ -44,4 +44,50 @@ class AppTheme {
         useMaterial3: true,
         fontFamily: GoogleFonts.questrial().fontFamily,
       );
+
+  static ThemeData get lightAuth => light.copyWith(
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor:
+                MaterialStateProperty.all<Color>(const Color(0xFF1A2C42)),
+            foregroundColor:
+                MaterialStateProperty.all<Color>(const Color(0xFFFFFFFF)),
+            fixedSize: MaterialStateProperty.all<Size>(
+              const Size(
+                double.infinity,
+                56,
+              ),
+            ),
+            textStyle: MaterialStateProperty.all<TextStyle>(
+                const TextStyle(fontSize: 24)),
+            shape: MaterialStateProperty.all<OutlinedBorder?>(
+                RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            )),
+          ),
+        ),
+      );
+
+  static ThemeData get darkAuth => dark.copyWith(
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor:
+                MaterialStateProperty.all<Color>(const Color(0xFF60748A)),
+            foregroundColor:
+                MaterialStateProperty.all<Color>(const Color(0xFFF2F4F7)),
+            fixedSize: MaterialStateProperty.all<Size>(
+              const Size(
+                double.infinity,
+                56,
+              ),
+            ),
+            textStyle: MaterialStateProperty.all<TextStyle>(
+                const TextStyle(fontSize: 24)),
+            shape: MaterialStateProperty.all<OutlinedBorder?>(
+                RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            )),
+          ),
+        ),
+      );
 }

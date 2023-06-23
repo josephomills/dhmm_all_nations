@@ -39,8 +39,8 @@ class BottomNavWidget extends StatelessWidget {
         onTabChange: (index) => context.tabsRouter.setActiveIndex(index),
         tabs: const [
           GButton(
-            icon: LineAwesomeIcons.play_circle,
-            text: "Videos",
+            icon: LineAwesomeIcons.home,
+            text: "Home",
           ),
           GButton(
             icon: LineAwesomeIcons.users,

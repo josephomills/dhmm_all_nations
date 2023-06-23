@@ -11,19 +11,25 @@ class AppRouter extends $AppRouter {
       guards: [AuthGuard()],
       path: "/",
       children: [
-        AutoRoute(page: VideosRoute.page, path: "videos"),
+        AutoRoute(page: HomeRoute.page, path: "home"),
         AutoRoute(page: ConferencesRoute.page, path: "conferences"),
-        AutoRoute(page: CollectionsRoute.page, path: "collections"),
+        AutoRoute(page: BooksRoute.page, path: "books"),
         AutoRoute(page: DonateRoute.page, path: "donate"),
         AutoRoute(page: MoreRoute.page, path: "more"),
       ],
     ),
-    AutoRoute(page: BooksRoute.page, path: "/books"),
     AutoRoute(page: EpubRoute.page, path: "/epub"),
+    AutoRoute(page: CollectionRoute.page, path: "/collection"),
+    AutoRoute(page: CollectionsRoute.page, path: "/collections"),
     AutoRoute(
       page: SettingsRoute.page,
       path: "/settings",
       meta: const {"title": "Settings"},
     ),
+    AutoRoute(page: LoginRoute.page, path: "/login"),
+    AutoRoute(page: PhoneInputRoute.page, path: "/phone-input"),
+    AutoRoute(page: RegisterRoute.page, path: "/register"),
+    AutoRoute(page: SMSCodeRoute.page, path: "/sms-code"),
+    AutoRoute(page: VideosRoute.page, path: "/videos"),
   ];
 }

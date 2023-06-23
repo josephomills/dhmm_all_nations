@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$BooksEvent {
-  BuildContext get context => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) vocysEpubConfigured,
+    required TResult Function(String url) bookOpened,
+    required TResult Function() booksFetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? vocysEpubConfigured,
+    TResult? Function(String url)? bookOpened,
+    TResult? Function()? booksFetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? vocysEpubConfigured,
+    TResult Function(String url)? bookOpened,
+    TResult Function()? booksFetched,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_VocysEpubConfigured value) vocysEpubConfigured,
+    required TResult Function(_BookOpened value) bookOpened,
+    required TResult Function(_BooksFetched value) booksFetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_VocysEpubConfigured value)? vocysEpubConfigured,
+    TResult? Function(_BookOpened value)? bookOpened,
+    TResult? Function(_BooksFetched value)? booksFetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_VocysEpubConfigured value)? vocysEpubConfigured,
+    TResult Function(_BookOpened value)? bookOpened,
+    TResult Function(_BooksFetched value)? booksFetched,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $BooksEventCopyWith<BooksEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +61,6 @@ abstract class $BooksEventCopyWith<$Res> {
   factory $BooksEventCopyWith(
           BooksEvent value, $Res Function(BooksEvent) then) =
       _$BooksEventCopyWithImpl<$Res, BooksEvent>;
-  @useResult
-  $Res call({BuildContext context});
 }
 
 /// @nodoc
@@ -73,109 +72,96 @@ class _$BooksEventCopyWithImpl<$Res, $Val extends BooksEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? context = null,
-  }) {
-    return _then(_value.copyWith(
-      context: null == context
-          ? _value.context
-          : context // ignore: cast_nullable_to_non_nullable
-              as BuildContext,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_VocysEpubConfiguredCopyWith<$Res>
-    implements $BooksEventCopyWith<$Res> {
-  factory _$$_VocysEpubConfiguredCopyWith(_$_VocysEpubConfigured value,
-          $Res Function(_$_VocysEpubConfigured) then) =
-      __$$_VocysEpubConfiguredCopyWithImpl<$Res>;
-  @override
+abstract class _$$_BookOpenedCopyWith<$Res> {
+  factory _$$_BookOpenedCopyWith(
+          _$_BookOpened value, $Res Function(_$_BookOpened) then) =
+      __$$_BookOpenedCopyWithImpl<$Res>;
   @useResult
-  $Res call({BuildContext context});
+  $Res call({String url});
 }
 
 /// @nodoc
-class __$$_VocysEpubConfiguredCopyWithImpl<$Res>
-    extends _$BooksEventCopyWithImpl<$Res, _$_VocysEpubConfigured>
-    implements _$$_VocysEpubConfiguredCopyWith<$Res> {
-  __$$_VocysEpubConfiguredCopyWithImpl(_$_VocysEpubConfigured _value,
-      $Res Function(_$_VocysEpubConfigured) _then)
+class __$$_BookOpenedCopyWithImpl<$Res>
+    extends _$BooksEventCopyWithImpl<$Res, _$_BookOpened>
+    implements _$$_BookOpenedCopyWith<$Res> {
+  __$$_BookOpenedCopyWithImpl(
+      _$_BookOpened _value, $Res Function(_$_BookOpened) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? context = null,
+    Object? url = null,
   }) {
-    return _then(_$_VocysEpubConfigured(
-      context: null == context
-          ? _value.context
-          : context // ignore: cast_nullable_to_non_nullable
-              as BuildContext,
+    return _then(_$_BookOpened(
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_VocysEpubConfigured implements _VocysEpubConfigured {
-  const _$_VocysEpubConfigured({required this.context});
+class _$_BookOpened implements _BookOpened {
+  const _$_BookOpened({required this.url});
 
   @override
-  final BuildContext context;
+  final String url;
 
   @override
   String toString() {
-    return 'BooksEvent.vocysEpubConfigured(context: $context)';
+    return 'BooksEvent.bookOpened(url: $url)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_VocysEpubConfigured &&
-            (identical(other.context, context) || other.context == context));
+            other is _$_BookOpened &&
+            (identical(other.url, url) || other.url == url));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, context);
+  int get hashCode => Object.hash(runtimeType, url);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_VocysEpubConfiguredCopyWith<_$_VocysEpubConfigured> get copyWith =>
-      __$$_VocysEpubConfiguredCopyWithImpl<_$_VocysEpubConfigured>(
-          this, _$identity);
+  _$$_BookOpenedCopyWith<_$_BookOpened> get copyWith =>
+      __$$_BookOpenedCopyWithImpl<_$_BookOpened>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) vocysEpubConfigured,
+    required TResult Function(String url) bookOpened,
+    required TResult Function() booksFetched,
   }) {
-    return vocysEpubConfigured(context);
+    return bookOpened(url);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? vocysEpubConfigured,
+    TResult? Function(String url)? bookOpened,
+    TResult? Function()? booksFetched,
   }) {
-    return vocysEpubConfigured?.call(context);
+    return bookOpened?.call(url);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? vocysEpubConfigured,
+    TResult Function(String url)? bookOpened,
+    TResult Function()? booksFetched,
     required TResult orElse(),
   }) {
-    if (vocysEpubConfigured != null) {
-      return vocysEpubConfigured(context);
+    if (bookOpened != null) {
+      return bookOpened(url);
     }
     return orElse();
   }
@@ -183,52 +169,166 @@ class _$_VocysEpubConfigured implements _VocysEpubConfigured {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_VocysEpubConfigured value) vocysEpubConfigured,
+    required TResult Function(_BookOpened value) bookOpened,
+    required TResult Function(_BooksFetched value) booksFetched,
   }) {
-    return vocysEpubConfigured(this);
+    return bookOpened(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_VocysEpubConfigured value)? vocysEpubConfigured,
+    TResult? Function(_BookOpened value)? bookOpened,
+    TResult? Function(_BooksFetched value)? booksFetched,
   }) {
-    return vocysEpubConfigured?.call(this);
+    return bookOpened?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_VocysEpubConfigured value)? vocysEpubConfigured,
+    TResult Function(_BookOpened value)? bookOpened,
+    TResult Function(_BooksFetched value)? booksFetched,
     required TResult orElse(),
   }) {
-    if (vocysEpubConfigured != null) {
-      return vocysEpubConfigured(this);
+    if (bookOpened != null) {
+      return bookOpened(this);
     }
     return orElse();
   }
 }
 
-abstract class _VocysEpubConfigured implements BooksEvent {
-  const factory _VocysEpubConfigured({required final BuildContext context}) =
-      _$_VocysEpubConfigured;
+abstract class _BookOpened implements BooksEvent {
+  const factory _BookOpened({required final String url}) = _$_BookOpened;
 
-  @override
-  BuildContext get context;
-  @override
+  String get url;
   @JsonKey(ignore: true)
-  _$$_VocysEpubConfiguredCopyWith<_$_VocysEpubConfigured> get copyWith =>
+  _$$_BookOpenedCopyWith<_$_BookOpened> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$BooksState {}
+abstract class _$$_BooksFetchedCopyWith<$Res> {
+  factory _$$_BooksFetchedCopyWith(
+          _$_BooksFetched value, $Res Function(_$_BooksFetched) then) =
+      __$$_BooksFetchedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_BooksFetchedCopyWithImpl<$Res>
+    extends _$BooksEventCopyWithImpl<$Res, _$_BooksFetched>
+    implements _$$_BooksFetchedCopyWith<$Res> {
+  __$$_BooksFetchedCopyWithImpl(
+      _$_BooksFetched _value, $Res Function(_$_BooksFetched) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_BooksFetched implements _BooksFetched {
+  const _$_BooksFetched();
+
+  @override
+  String toString() {
+    return 'BooksEvent.booksFetched()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_BooksFetched);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String url) bookOpened,
+    required TResult Function() booksFetched,
+  }) {
+    return booksFetched();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String url)? bookOpened,
+    TResult? Function()? booksFetched,
+  }) {
+    return booksFetched?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String url)? bookOpened,
+    TResult Function()? booksFetched,
+    required TResult orElse(),
+  }) {
+    if (booksFetched != null) {
+      return booksFetched();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_BookOpened value) bookOpened,
+    required TResult Function(_BooksFetched value) booksFetched,
+  }) {
+    return booksFetched(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_BookOpened value)? bookOpened,
+    TResult? Function(_BooksFetched value)? booksFetched,
+  }) {
+    return booksFetched?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_BookOpened value)? bookOpened,
+    TResult Function(_BooksFetched value)? booksFetched,
+    required TResult orElse(),
+  }) {
+    if (booksFetched != null) {
+      return booksFetched(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _BooksFetched implements BooksEvent {
+  const factory _BooksFetched() = _$_BooksFetched;
+}
+
+/// @nodoc
+mixin _$BooksState {
+  bool get isLoading => throw _privateConstructorUsedError;
+  Option<Either<BooksFailure, List<BookObject>>> get booksOption =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $BooksStateCopyWith<BooksState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
 
 /// @nodoc
 abstract class $BooksStateCopyWith<$Res> {
   factory $BooksStateCopyWith(
           BooksState value, $Res Function(BooksState) then) =
       _$BooksStateCopyWithImpl<$Res, BooksState>;
+  @useResult
+  $Res call(
+      {bool isLoading,
+      Option<Either<BooksFailure, List<BookObject>>> booksOption});
 }
 
 /// @nodoc
@@ -240,13 +340,37 @@ class _$BooksStateCopyWithImpl<$Res, $Val extends BooksState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLoading = null,
+    Object? booksOption = null,
+  }) {
+    return _then(_value.copyWith(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      booksOption: null == booksOption
+          ? _value.booksOption
+          : booksOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<BooksFailure, List<BookObject>>>,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$_BooksStateCopyWith<$Res> {
+abstract class _$$_BooksStateCopyWith<$Res>
+    implements $BooksStateCopyWith<$Res> {
   factory _$$_BooksStateCopyWith(
           _$_BooksState value, $Res Function(_$_BooksState) then) =
       __$$_BooksStateCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {bool isLoading,
+      Option<Either<BooksFailure, List<BookObject>>> booksOption});
 }
 
 /// @nodoc
@@ -256,28 +380,74 @@ class __$$_BooksStateCopyWithImpl<$Res>
   __$$_BooksStateCopyWithImpl(
       _$_BooksState _value, $Res Function(_$_BooksState) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLoading = null,
+    Object? booksOption = null,
+  }) {
+    return _then(_$_BooksState(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      booksOption: null == booksOption
+          ? _value.booksOption
+          : booksOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<BooksFailure, List<BookObject>>>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_BooksState implements _BooksState {
-  const _$_BooksState();
+  const _$_BooksState({required this.isLoading, required this.booksOption});
+
+  @override
+  final bool isLoading;
+  @override
+  final Option<Either<BooksFailure, List<BookObject>>> booksOption;
 
   @override
   String toString() {
-    return 'BooksState()';
+    return 'BooksState(isLoading: $isLoading, booksOption: $booksOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_BooksState);
+        (other.runtimeType == runtimeType &&
+            other is _$_BooksState &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.booksOption, booksOption) ||
+                other.booksOption == booksOption));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, isLoading, booksOption);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_BooksStateCopyWith<_$_BooksState> get copyWith =>
+      __$$_BooksStateCopyWithImpl<_$_BooksState>(this, _$identity);
 }
 
 abstract class _BooksState implements BooksState {
-  const factory _BooksState() = _$_BooksState;
+  const factory _BooksState(
+      {required final bool isLoading,
+      required final Option<Either<BooksFailure, List<BookObject>>>
+          booksOption}) = _$_BooksState;
+
+  @override
+  bool get isLoading;
+  @override
+  Option<Either<BooksFailure, List<BookObject>>> get booksOption;
+  @override
+  @JsonKey(ignore: true)
+  _$$_BooksStateCopyWith<_$_BooksState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

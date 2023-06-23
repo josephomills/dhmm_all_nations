@@ -1,11 +1,12 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 @module
-abstract class FormModule {
+abstract class AppModule {
   @injectable
   GlobalKey<FormState> get formKey => GlobalKey<FormState>();
-}
 
-@module
-abstract class SharedPrefsModule {}
+  @injectable
+  Dio get dio => Dio();
+}

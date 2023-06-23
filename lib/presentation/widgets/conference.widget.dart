@@ -1,6 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:all_nations/infrastructure/conference/conference.object.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class RectangleConferenceWidget extends StatelessWidget {
   const RectangleConferenceWidget({
@@ -8,11 +7,13 @@ class RectangleConferenceWidget extends StatelessWidget {
     required this.width,
     this.square = false,
     this.roundCorners = true,
+    required this.conference,
   }) : super(key: key);
 
   final double width;
   final bool square;
   final bool roundCorners;
+  final ConferenceObject conference;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class RectangleConferenceWidget extends StatelessWidget {
       height: square ? width : (9 / 16) * width,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: CachedNetworkImageProvider(dotenv.get("GOOD_FRIDAY")),
+          image: NetworkImage(conference.flyer!.url!),
           fit: BoxFit.cover,
         ),
         borderRadius:

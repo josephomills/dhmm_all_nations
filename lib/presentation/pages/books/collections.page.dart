@@ -24,7 +24,8 @@ class CollectionsPage extends StatelessWidget implements AutoRouteWrapper {
         itemCount: 10,
         itemBuilder: (context, index) {
           return InkWell(
-            onTap: () => context.router.push(BooksRoute(collection: index + 1)),
+            onTap: () =>
+                context.router.push(CollectionRoute(collection: index + 1)),
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 8),
               height: 210,

@@ -1,5 +1,6 @@
 import 'package:all_nations/presentation/navigation/autoroute.gr.dart';
 import 'package:all_nations/presentation/widgets/appbar.widget.dart';
+import 'package:all_nations/presentation/widgets/logout.widget.dart';
 import 'package:all_nations/presentation/widgets/more_tile.widget.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,10 @@ class MorePage extends StatelessWidget {
             icon: LineAwesomeIcons.alternate_sign_out,
             title: "Logout",
             color: Theme.of(context).colorScheme.error,
-            onTap: () {},
+            onTap: () => showModalBottomSheet(
+              context: context,
+              builder: (context) => const LogoutWidget(),
+            ),
           ),
         ],
       ),

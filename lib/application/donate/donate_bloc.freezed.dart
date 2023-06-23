@@ -164,21 +164,13 @@ abstract class _Started implements DonateEvent {
 }
 
 /// @nodoc
-mixin _$DonateState {
-  WebViewController get webViewController => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $DonateStateCopyWith<DonateState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+mixin _$DonateState {}
 
 /// @nodoc
 abstract class $DonateStateCopyWith<$Res> {
   factory $DonateStateCopyWith(
           DonateState value, $Res Function(DonateState) then) =
       _$DonateStateCopyWithImpl<$Res, DonateState>;
-  @useResult
-  $Res call({WebViewController webViewController});
 }
 
 /// @nodoc
@@ -190,30 +182,13 @@ class _$DonateStateCopyWithImpl<$Res, $Val extends DonateState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? webViewController = null,
-  }) {
-    return _then(_value.copyWith(
-      webViewController: null == webViewController
-          ? _value.webViewController
-          : webViewController // ignore: cast_nullable_to_non_nullable
-              as WebViewController,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_DonateStateCopyWith<$Res>
-    implements $DonateStateCopyWith<$Res> {
+abstract class _$$_DonateStateCopyWith<$Res> {
   factory _$$_DonateStateCopyWith(
           _$_DonateState value, $Res Function(_$_DonateState) then) =
       __$$_DonateStateCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({WebViewController webViewController});
 }
 
 /// @nodoc
@@ -223,61 +198,28 @@ class __$$_DonateStateCopyWithImpl<$Res>
   __$$_DonateStateCopyWithImpl(
       _$_DonateState _value, $Res Function(_$_DonateState) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? webViewController = null,
-  }) {
-    return _then(_$_DonateState(
-      webViewController: null == webViewController
-          ? _value.webViewController
-          : webViewController // ignore: cast_nullable_to_non_nullable
-              as WebViewController,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_DonateState implements _DonateState {
-  const _$_DonateState({required this.webViewController});
-
-  @override
-  final WebViewController webViewController;
+  const _$_DonateState();
 
   @override
   String toString() {
-    return 'DonateState(webViewController: $webViewController)';
+    return 'DonateState()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_DonateState &&
-            (identical(other.webViewController, webViewController) ||
-                other.webViewController == webViewController));
+        (other.runtimeType == runtimeType && other is _$_DonateState);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, webViewController);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_DonateStateCopyWith<_$_DonateState> get copyWith =>
-      __$$_DonateStateCopyWithImpl<_$_DonateState>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 }
 
 abstract class _DonateState implements DonateState {
-  const factory _DonateState(
-      {required final WebViewController webViewController}) = _$_DonateState;
-
-  @override
-  WebViewController get webViewController;
-  @override
-  @JsonKey(ignore: true)
-  _$$_DonateStateCopyWith<_$_DonateState> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _DonateState() = _$_DonateState;
 }

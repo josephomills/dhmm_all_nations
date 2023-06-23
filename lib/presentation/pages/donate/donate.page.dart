@@ -23,9 +23,8 @@ class DonatePage extends StatelessWidget implements AutoRouteWrapper {
           physics: const BouncingScrollPhysics(),
           floatHeaderSlivers: true,
           headerSliverBuilder: (context, innerBoxIsScrolled) {
-            return [AppBarWidget(controller: state.webViewController)];
+            return [const AppBarWidget()];
           },
-          // body: WebViewWidget(controller: state.webViewController),
           body: ListView(
             primary: false,
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
@@ -46,9 +45,8 @@ class DonatePage extends StatelessWidget implements AutoRouteWrapper {
                 child: Image.asset(
                   "assets/images/logo/paypal-logo.png",
                   height: 70,
-                  // width: 150,
-                  scale: 0.5,
                   fit: BoxFit.contain,
+                  cacheHeight: 280,
                 ),
                 onTap: () {
                   launchUrl(Uri.parse(dotenv.get("PAYPAL_URL")));
@@ -70,9 +68,8 @@ class DonatePage extends StatelessWidget implements AutoRouteWrapper {
                           ? "assets/images/logo/pay-by-bank-app-white.png"
                           : "assets/images/logo/pay-by-bank-app.png",
                       height: 70,
-                      // width: 150,
-                      scale: 0.5,
                       fit: BoxFit.contain,
+                      cacheHeight: 140,
                     );
                   },
                 ),
