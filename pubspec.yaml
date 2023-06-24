@@ -40,7 +40,7 @@ dependencies:
   json_annotation: ^4.8.0
   line_awesome_flutter: ^2.0.0
   moment_dart: ^0.17.4
-  parse_server_sdk_flutter: ^4.0.0
+  parse_server_sdk_flutter: ^5.0.1
   path_provider: ^2.0.14
   permission_handler: ^10.2.0
   responsive_framework: ^0.2.0

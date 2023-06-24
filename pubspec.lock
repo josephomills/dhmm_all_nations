@@ -953,18 +953,18 @@ packages:
     dependency: transitive
     description:
       name: parse_server_sdk
-      sha256: "274a03bf152b0d203b5d41c8a2643d9372b997600a6ab83e03c50d67670d7f9c"
+      sha256: bf85c1a807849efc380432b8f6c3e91597b6283e7fbbf0151db244de3bef0a5e
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.2"
+    version: "5.1.2"
   parse_server_sdk_flutter:
     dependency: "direct main"
     description:
       name: parse_server_sdk_flutter
-      sha256: afc91be3cb63bc132b29be3dd0ec394b01c158c1db0f303276f2dd00d8c632e8
+      sha256: f9b2c0d60f029177149484ee0a09247402f777bbfcc0a47ab1d4e4e2bb01405c
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.0"
+    version: "5.0.1"
   path:
     dependency: transitive
     description:

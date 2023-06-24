@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:all_nations/infrastructure/books/book.object.dart';
 import 'package:all_nations/domain/books/books.facade.dart';
 import 'package:all_nations/domain/books/books.failure.dart';
 import 'package:all_nations/domain/core/extensions/string.ext.dart';
 import 'package:all_nations/domain/core/util/util.dart';
+import 'package:all_nations/infrastructure/books/book.object.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:device_info_plus/device_info_plus.dart';
@@ -15,9 +15,9 @@ import 'package:injectable/injectable.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:vocsy_epub_viewer/epub_viewer.dart';
 
+part 'books_bloc.freezed.dart';
 part 'books_event.dart';
 part 'books_state.dart';
-part 'books_bloc.freezed.dart';
 
 @injectable
 class BooksBloc extends Bloc<BooksEvent, BooksState> {
@@ -57,12 +57,28 @@ class BooksBloc extends Bloc<BooksEvent, BooksState> {
       final deviceInfoPlugin = DeviceInfoPlugin();
       final deviceInfo = await deviceInfoPlugin.deviceInfo;
       final allInfo = deviceInfo.data;
-      if (allInfo['version']["release"].toString().contains(".")) {
-        int indexOfFirstDot = allInfo['version']["release"].indexOf(".");
-        firstPart = allInfo['version']["release"].substring(0, indexOfFirstDot);
-      } else {
-        firstPart = allInfo['version']["release"];
+
+      print(allInfo);
+      if (Platform.isAndroid) {
+        if (allInfo['version']["release"].toString().contains(".")) {
+          int indexOfFirstDot = allInfo['version']["release"].indexOf(".");
+          firstPart =
+              allInfo['version']["release"].substring(0, indexOfFirstDot);
+        } else {
+          firstPart = allInfo['version']["release"];
+        }
       }
+
+      if (Platform.isIOS) {
+        if (allInfo['utsname']["release"].toString().contains(".")) {
+          int indexOfFirstDot = allInfo['utsname']["release"].indexOf(".");
+          firstPart =
+              allInfo['utsname']["release"].substring(0, indexOfFirstDot);
+        } else {
+          firstPart = allInfo['utsname']["release"];
+        }
+      }
+
       int intValue = int.parse(firstPart!);
       if (intValue >= 13) {
         final path = await startDownload(url: url);

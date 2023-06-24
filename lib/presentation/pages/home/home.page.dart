@@ -46,6 +46,7 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
                     CarouselSlider(
                       options: CarouselOptions(
                         enlargeCenterPage: true,
+                        enableInfiniteScroll: false,
                         autoPlay: true,
                         autoPlayInterval: const Duration(seconds: 10),
                         autoPlayAnimationDuration: const Duration(seconds: 2),
