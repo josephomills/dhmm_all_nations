@@ -50,10 +50,10 @@ class BottomNavWidget extends StatelessWidget {
             icon: LineAwesomeIcons.book_reader,
             text: "Books",
           ),
-          GButton(
-            icon: LineAwesomeIcons.hand_holding_us_dollar,
-            text: "Donate",
-          ),
+          // GButton(
+          //   icon: LineAwesomeIcons.hand_holding_us_dollar,
+          //   text: "Donate",
+          // ),
           GButton(
             icon: LineAwesomeIcons.bars,
             text: "More",
