@@ -31,5 +31,10 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: RegisterRoute.page, path: "/register"),
     AutoRoute(page: SMSCodeRoute.page, path: "/sms-code"),
     AutoRoute(page: VideosRoute.page, path: "/videos"),
+    AutoRoute(
+      page: ProfileRoute.page,
+      path: "/profile",
+      meta: const {"title": "Profile"},
+    ),
   ];
 }

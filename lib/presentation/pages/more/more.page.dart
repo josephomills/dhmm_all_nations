@@ -26,7 +26,7 @@ class MorePage extends StatelessWidget {
           MoreTileWidget(
             icon: LineAwesomeIcons.user,
             title: "Profile",
-            onTap: () {},
+            onTap: () => context.router.push(const ProfileRoute()),
           ),
           const SizedBox(height: 32),
           MoreTileWidget(

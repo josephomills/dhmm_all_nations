@@ -9,62 +9,75 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:all_nations/infrastructure/conference/conference.object.dart'
-    as _i20;
-import 'package:all_nations/presentation/pages/auth/login.page.dart' as _i1;
+    as _i21;
+import 'package:all_nations/presentation/pages/auth/login.page.dart' as _i3;
 import 'package:all_nations/presentation/pages/auth/phone_input.page.dart'
-    as _i2;
-import 'package:all_nations/presentation/pages/auth/register.page.dart' as _i3;
-import 'package:all_nations/presentation/pages/auth/sms_code.page.dart' as _i4;
-import 'package:all_nations/presentation/pages/books/books.page.dart' as _i5;
+    as _i4;
+import 'package:all_nations/presentation/pages/auth/register.page.dart' as _i5;
+import 'package:all_nations/presentation/pages/auth/sms_code.page.dart' as _i6;
+import 'package:all_nations/presentation/pages/books/books.page.dart' as _i9;
 import 'package:all_nations/presentation/pages/books/collection.page.dart'
-    as _i6;
+    as _i8;
 import 'package:all_nations/presentation/pages/books/collections.page.dart'
     as _i7;
-import 'package:all_nations/presentation/pages/books/epub.page.dart' as _i8;
+import 'package:all_nations/presentation/pages/books/epub.page.dart' as _i10;
 import 'package:all_nations/presentation/pages/conferences/conference_details.page.dart'
-    as _i10;
+    as _i15;
 import 'package:all_nations/presentation/pages/conferences/conferences.page.dart'
-    as _i9;
-import 'package:all_nations/presentation/pages/donate/donate.page.dart' as _i11;
-import 'package:all_nations/presentation/pages/home/home.page.dart' as _i12;
-import 'package:all_nations/presentation/pages/index.page.dart' as _i13;
-import 'package:all_nations/presentation/pages/more/more.page.dart' as _i14;
-import 'package:all_nations/presentation/pages/more/settings.page.dart' as _i15;
-import 'package:all_nations/presentation/pages/videos/videos.page.dart' as _i16;
-import 'package:auto_route/auto_route.dart' as _i17;
-import 'package:firebase_ui_auth/firebase_ui_auth.dart' as _i19;
-import 'package:flutter/material.dart' as _i18;
+    as _i16;
+import 'package:all_nations/presentation/pages/donate/donate.page.dart' as _i2;
+import 'package:all_nations/presentation/pages/home/home.page.dart' as _i1;
+import 'package:all_nations/presentation/pages/index.page.dart' as _i17;
+import 'package:all_nations/presentation/pages/more/more.page.dart' as _i13;
+import 'package:all_nations/presentation/pages/more/profile.page.dart' as _i12;
+import 'package:all_nations/presentation/pages/more/settings.page.dart' as _i11;
+import 'package:all_nations/presentation/pages/videos/videos.page.dart' as _i14;
+import 'package:auto_route/auto_route.dart' as _i18;
+import 'package:firebase_ui_auth/firebase_ui_auth.dart' as _i20;
+import 'package:flutter/material.dart' as _i19;
 
-abstract class $AppRouter extends _i17.RootStackRouter {
+abstract class $AppRouter extends _i18.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i17.PageFactory> pagesMap = {
-    LoginRoute.name: (routeData) {
-      return _i17.AutoRoutePage<dynamic>(
+  final Map<String, _i18.PageFactory> pagesMap = {
+    HomeRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.LoginPage(),
+        child: _i18.WrappedRoute(child: const _i1.HomePage()),
+      );
+    },
+    DonateRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i18.WrappedRoute(child: const _i2.DonatePage()),
+      );
+    },
+    LoginRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i3.LoginPage(),
       );
     },
     PhoneInputRoute.name: (routeData) {
-      return _i17.AutoRoutePage<dynamic>(
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.PhoneInputPage(),
+        child: const _i4.PhoneInputPage(),
       );
     },
     RegisterRoute.name: (routeData) {
       final args = routeData.argsAs<RegisterRouteArgs>(
           orElse: () => const RegisterRouteArgs());
-      return _i17.AutoRoutePage<dynamic>(
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i17.WrappedRoute(child: _i3.RegisterPage(key: args.key)),
+        child: _i18.WrappedRoute(child: _i5.RegisterPage(key: args.key)),
       );
     },
     SMSCodeRoute.name: (routeData) {
       final args = routeData.argsAs<SMSCodeRouteArgs>();
-      return _i17.AutoRoutePage<dynamic>(
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i4.SMSCodePage(
+        child: _i6.SMSCodePage(
           key: args.key,
           phone: args.phone,
           authAction: args.authAction,
@@ -72,98 +85,120 @@ abstract class $AppRouter extends _i17.RootStackRouter {
         ),
       );
     },
-    BooksRoute.name: (routeData) {
-      return _i17.AutoRoutePage<dynamic>(
+    CollectionsRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i17.WrappedRoute(child: const _i5.BooksPage()),
+        child: _i18.WrappedRoute(child: const _i7.CollectionsPage()),
       );
     },
     CollectionRoute.name: (routeData) {
       final args = routeData.argsAs<CollectionRouteArgs>();
-      return _i17.AutoRoutePage<dynamic>(
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i17.WrappedRoute(
-            child: _i6.CollectionPage(
+        child: _i18.WrappedRoute(
+            child: _i8.CollectionPage(
           key: args.key,
           collection: args.collection,
         )),
       );
     },
-    CollectionsRoute.name: (routeData) {
-      return _i17.AutoRoutePage<dynamic>(
+    BooksRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i17.WrappedRoute(child: const _i7.CollectionsPage()),
+        child: _i18.WrappedRoute(child: const _i9.BooksPage()),
       );
     },
     EpubRoute.name: (routeData) {
       final args = routeData.argsAs<EpubRouteArgs>();
-      return _i17.AutoRoutePage<dynamic>(
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i8.EpubPage(
+        child: _i10.EpubPage(
           key: args.key,
           url: args.url,
         ),
       );
     },
-    ConferencesRoute.name: (routeData) {
-      return _i17.AutoRoutePage<dynamic>(
+    SettingsRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i17.WrappedRoute(child: const _i9.ConferencesPage()),
+        child: const _i11.SettingsPage(),
+      );
+    },
+    ProfileRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i18.WrappedRoute(child: const _i12.ProfilePage()),
+      );
+    },
+    MoreRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i13.MorePage(),
+      );
+    },
+    VideosRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i14.VideosPage(),
       );
     },
     ConferenceDetailsRoute.name: (routeData) {
       final args = routeData.argsAs<ConferenceDetailsRouteArgs>();
-      return _i17.AutoRoutePage<dynamic>(
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i10.ConferenceDetailsPage(
+        child: _i15.ConferenceDetailsPage(
           key: args.key,
           conference: args.conference,
         ),
       );
     },
-    DonateRoute.name: (routeData) {
-      return _i17.AutoRoutePage<dynamic>(
+    ConferencesRoute.name: (routeData) {
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i17.WrappedRoute(child: const _i11.DonatePage()),
-      );
-    },
-    HomeRoute.name: (routeData) {
-      return _i17.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i17.WrappedRoute(child: const _i12.HomePage()),
+        child: _i18.WrappedRoute(child: const _i16.ConferencesPage()),
       );
     },
     IndexRoute.name: (routeData) {
-      return _i17.AutoRoutePage<dynamic>(
+      return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i13.IndexPage(),
-      );
-    },
-    MoreRoute.name: (routeData) {
-      return _i17.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i14.MorePage(),
-      );
-    },
-    SettingsRoute.name: (routeData) {
-      return _i17.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i15.SettingsPage(),
-      );
-    },
-    VideosRoute.name: (routeData) {
-      return _i17.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i16.VideosPage(),
+        child: const _i17.IndexPage(),
       );
     },
   };
 }
 
 /// generated route for
-/// [_i1.LoginPage]
-class LoginRoute extends _i17.PageRouteInfo<void> {
-  const LoginRoute({List<_i17.PageRouteInfo>? children})
+/// [_i1.HomePage]
+class HomeRoute extends _i18.PageRouteInfo<void> {
+  const HomeRoute({List<_i18.PageRouteInfo>? children})
+      : super(
+          HomeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRoute';
+
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i2.DonatePage]
+class DonateRoute extends _i18.PageRouteInfo<void> {
+  const DonateRoute({List<_i18.PageRouteInfo>? children})
+      : super(
+          DonateRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DonateRoute';
+
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i3.LoginPage]
+class LoginRoute extends _i18.PageRouteInfo<void> {
+  const LoginRoute({List<_i18.PageRouteInfo>? children})
       : super(
           LoginRoute.name,
           initialChildren: children,
@@ -171,13 +206,13 @@ class LoginRoute extends _i17.PageRouteInfo<void> {
 
   static const String name = 'LoginRoute';
 
-  static const _i17.PageInfo<void> page = _i17.PageInfo<void>(name);
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i2.PhoneInputPage]
-class PhoneInputRoute extends _i17.PageRouteInfo<void> {
-  const PhoneInputRoute({List<_i17.PageRouteInfo>? children})
+/// [_i4.PhoneInputPage]
+class PhoneInputRoute extends _i18.PageRouteInfo<void> {
+  const PhoneInputRoute({List<_i18.PageRouteInfo>? children})
       : super(
           PhoneInputRoute.name,
           initialChildren: children,
@@ -185,15 +220,15 @@ class PhoneInputRoute extends _i17.PageRouteInfo<void> {
 
   static const String name = 'PhoneInputRoute';
 
-  static const _i17.PageInfo<void> page = _i17.PageInfo<void>(name);
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i3.RegisterPage]
-class RegisterRoute extends _i17.PageRouteInfo<RegisterRouteArgs> {
+/// [_i5.RegisterPage]
+class RegisterRoute extends _i18.PageRouteInfo<RegisterRouteArgs> {
   RegisterRoute({
-    _i18.Key? key,
-    List<_i17.PageRouteInfo>? children,
+    _i19.Key? key,
+    List<_i18.PageRouteInfo>? children,
   }) : super(
           RegisterRoute.name,
           args: RegisterRouteArgs(key: key),
@@ -202,14 +237,14 @@ class RegisterRoute extends _i17.PageRouteInfo<RegisterRouteArgs> {
 
   static const String name = 'RegisterRoute';
 
-  static const _i17.PageInfo<RegisterRouteArgs> page =
-      _i17.PageInfo<RegisterRouteArgs>(name);
+  static const _i18.PageInfo<RegisterRouteArgs> page =
+      _i18.PageInfo<RegisterRouteArgs>(name);
 }
 
 class RegisterRouteArgs {
   const RegisterRouteArgs({this.key});
 
-  final _i18.Key? key;
+  final _i19.Key? key;
 
   @override
   String toString() {
@@ -218,14 +253,14 @@ class RegisterRouteArgs {
 }
 
 /// generated route for
-/// [_i4.SMSCodePage]
-class SMSCodeRoute extends _i17.PageRouteInfo<SMSCodeRouteArgs> {
+/// [_i6.SMSCodePage]
+class SMSCodeRoute extends _i18.PageRouteInfo<SMSCodeRouteArgs> {
   SMSCodeRoute({
-    _i18.Key? key,
+    _i19.Key? key,
     required String phone,
-    required _i19.AuthAction? authAction,
+    required _i20.AuthAction? authAction,
     required Object flowKey,
-    List<_i17.PageRouteInfo>? children,
+    List<_i18.PageRouteInfo>? children,
   }) : super(
           SMSCodeRoute.name,
           args: SMSCodeRouteArgs(
@@ -239,8 +274,8 @@ class SMSCodeRoute extends _i17.PageRouteInfo<SMSCodeRouteArgs> {
 
   static const String name = 'SMSCodeRoute';
 
-  static const _i17.PageInfo<SMSCodeRouteArgs> page =
-      _i17.PageInfo<SMSCodeRouteArgs>(name);
+  static const _i18.PageInfo<SMSCodeRouteArgs> page =
+      _i18.PageInfo<SMSCodeRouteArgs>(name);
 }
 
 class SMSCodeRouteArgs {
@@ -251,11 +286,11 @@ class SMSCodeRouteArgs {
     required this.flowKey,
   });
 
-  final _i18.Key? key;
+  final _i19.Key? key;
 
   final String phone;
 
-  final _i19.AuthAction? authAction;
+  final _i20.AuthAction? authAction;
 
   final Object flowKey;
 
@@ -266,26 +301,26 @@ class SMSCodeRouteArgs {
 }
 
 /// generated route for
-/// [_i5.BooksPage]
-class BooksRoute extends _i17.PageRouteInfo<void> {
-  const BooksRoute({List<_i17.PageRouteInfo>? children})
+/// [_i7.CollectionsPage]
+class CollectionsRoute extends _i18.PageRouteInfo<void> {
+  const CollectionsRoute({List<_i18.PageRouteInfo>? children})
       : super(
-          BooksRoute.name,
+          CollectionsRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'BooksRoute';
+  static const String name = 'CollectionsRoute';
 
-  static const _i17.PageInfo<void> page = _i17.PageInfo<void>(name);
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i6.CollectionPage]
-class CollectionRoute extends _i17.PageRouteInfo<CollectionRouteArgs> {
+/// [_i8.CollectionPage]
+class CollectionRoute extends _i18.PageRouteInfo<CollectionRouteArgs> {
   CollectionRoute({
-    _i18.Key? key,
+    _i19.Key? key,
     required int collection,
-    List<_i17.PageRouteInfo>? children,
+    List<_i18.PageRouteInfo>? children,
   }) : super(
           CollectionRoute.name,
           args: CollectionRouteArgs(
@@ -297,8 +332,8 @@ class CollectionRoute extends _i17.PageRouteInfo<CollectionRouteArgs> {
 
   static const String name = 'CollectionRoute';
 
-  static const _i17.PageInfo<CollectionRouteArgs> page =
-      _i17.PageInfo<CollectionRouteArgs>(name);
+  static const _i18.PageInfo<CollectionRouteArgs> page =
+      _i18.PageInfo<CollectionRouteArgs>(name);
 }
 
 class CollectionRouteArgs {
@@ -307,7 +342,7 @@ class CollectionRouteArgs {
     required this.collection,
   });
 
-  final _i18.Key? key;
+  final _i19.Key? key;
 
   final int collection;
 
@@ -318,26 +353,26 @@ class CollectionRouteArgs {
 }
 
 /// generated route for
-/// [_i7.CollectionsPage]
-class CollectionsRoute extends _i17.PageRouteInfo<void> {
-  const CollectionsRoute({List<_i17.PageRouteInfo>? children})
+/// [_i9.BooksPage]
+class BooksRoute extends _i18.PageRouteInfo<void> {
+  const BooksRoute({List<_i18.PageRouteInfo>? children})
       : super(
-          CollectionsRoute.name,
+          BooksRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'CollectionsRoute';
+  static const String name = 'BooksRoute';
 
-  static const _i17.PageInfo<void> page = _i17.PageInfo<void>(name);
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i8.EpubPage]
-class EpubRoute extends _i17.PageRouteInfo<EpubRouteArgs> {
+/// [_i10.EpubPage]
+class EpubRoute extends _i18.PageRouteInfo<EpubRouteArgs> {
   EpubRoute({
-    _i18.Key? key,
+    _i19.Key? key,
     required String url,
-    List<_i17.PageRouteInfo>? children,
+    List<_i18.PageRouteInfo>? children,
   }) : super(
           EpubRoute.name,
           args: EpubRouteArgs(
@@ -349,8 +384,8 @@ class EpubRoute extends _i17.PageRouteInfo<EpubRouteArgs> {
 
   static const String name = 'EpubRoute';
 
-  static const _i17.PageInfo<EpubRouteArgs> page =
-      _i17.PageInfo<EpubRouteArgs>(name);
+  static const _i18.PageInfo<EpubRouteArgs> page =
+      _i18.PageInfo<EpubRouteArgs>(name);
 }
 
 class EpubRouteArgs {
@@ -359,7 +394,7 @@ class EpubRouteArgs {
     required this.url,
   });
 
-  final _i18.Key? key;
+  final _i19.Key? key;
 
   final String url;
 
@@ -370,27 +405,69 @@ class EpubRouteArgs {
 }
 
 /// generated route for
-/// [_i9.ConferencesPage]
-class ConferencesRoute extends _i17.PageRouteInfo<void> {
-  const ConferencesRoute({List<_i17.PageRouteInfo>? children})
+/// [_i11.SettingsPage]
+class SettingsRoute extends _i18.PageRouteInfo<void> {
+  const SettingsRoute({List<_i18.PageRouteInfo>? children})
       : super(
-          ConferencesRoute.name,
+          SettingsRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'ConferencesRoute';
+  static const String name = 'SettingsRoute';
 
-  static const _i17.PageInfo<void> page = _i17.PageInfo<void>(name);
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i10.ConferenceDetailsPage]
+/// [_i12.ProfilePage]
+class ProfileRoute extends _i18.PageRouteInfo<void> {
+  const ProfileRoute({List<_i18.PageRouteInfo>? children})
+      : super(
+          ProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileRoute';
+
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i13.MorePage]
+class MoreRoute extends _i18.PageRouteInfo<void> {
+  const MoreRoute({List<_i18.PageRouteInfo>? children})
+      : super(
+          MoreRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MoreRoute';
+
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i14.VideosPage]
+class VideosRoute extends _i18.PageRouteInfo<void> {
+  const VideosRoute({List<_i18.PageRouteInfo>? children})
+      : super(
+          VideosRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'VideosRoute';
+
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i15.ConferenceDetailsPage]
 class ConferenceDetailsRoute
-    extends _i17.PageRouteInfo<ConferenceDetailsRouteArgs> {
+    extends _i18.PageRouteInfo<ConferenceDetailsRouteArgs> {
   ConferenceDetailsRoute({
-    _i18.Key? key,
-    required _i20.ConferenceObject conference,
-    List<_i17.PageRouteInfo>? children,
+    _i19.Key? key,
+    required _i21.ConferenceObject conference,
+    List<_i18.PageRouteInfo>? children,
   }) : super(
           ConferenceDetailsRoute.name,
           args: ConferenceDetailsRouteArgs(
@@ -402,8 +479,8 @@ class ConferenceDetailsRoute
 
   static const String name = 'ConferenceDetailsRoute';
 
-  static const _i17.PageInfo<ConferenceDetailsRouteArgs> page =
-      _i17.PageInfo<ConferenceDetailsRouteArgs>(name);
+  static const _i18.PageInfo<ConferenceDetailsRouteArgs> page =
+      _i18.PageInfo<ConferenceDetailsRouteArgs>(name);
 }
 
 class ConferenceDetailsRouteArgs {
@@ -412,9 +489,9 @@ class ConferenceDetailsRouteArgs {
     required this.conference,
   });
 
-  final _i18.Key? key;
+  final _i19.Key? key;
 
-  final _i20.ConferenceObject conference;
+  final _i21.ConferenceObject conference;
 
   @override
   String toString() {
@@ -423,37 +500,23 @@ class ConferenceDetailsRouteArgs {
 }
 
 /// generated route for
-/// [_i11.DonatePage]
-class DonateRoute extends _i17.PageRouteInfo<void> {
-  const DonateRoute({List<_i17.PageRouteInfo>? children})
+/// [_i16.ConferencesPage]
+class ConferencesRoute extends _i18.PageRouteInfo<void> {
+  const ConferencesRoute({List<_i18.PageRouteInfo>? children})
       : super(
-          DonateRoute.name,
+          ConferencesRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'DonateRoute';
+  static const String name = 'ConferencesRoute';
 
-  static const _i17.PageInfo<void> page = _i17.PageInfo<void>(name);
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i12.HomePage]
-class HomeRoute extends _i17.PageRouteInfo<void> {
-  const HomeRoute({List<_i17.PageRouteInfo>? children})
-      : super(
-          HomeRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'HomeRoute';
-
-  static const _i17.PageInfo<void> page = _i17.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i13.IndexPage]
-class IndexRoute extends _i17.PageRouteInfo<void> {
-  const IndexRoute({List<_i17.PageRouteInfo>? children})
+/// [_i17.IndexPage]
+class IndexRoute extends _i18.PageRouteInfo<void> {
+  const IndexRoute({List<_i18.PageRouteInfo>? children})
       : super(
           IndexRoute.name,
           initialChildren: children,
@@ -461,47 +524,5 @@ class IndexRoute extends _i17.PageRouteInfo<void> {
 
   static const String name = 'IndexRoute';
 
-  static const _i17.PageInfo<void> page = _i17.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i14.MorePage]
-class MoreRoute extends _i17.PageRouteInfo<void> {
-  const MoreRoute({List<_i17.PageRouteInfo>? children})
-      : super(
-          MoreRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'MoreRoute';
-
-  static const _i17.PageInfo<void> page = _i17.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i15.SettingsPage]
-class SettingsRoute extends _i17.PageRouteInfo<void> {
-  const SettingsRoute({List<_i17.PageRouteInfo>? children})
-      : super(
-          SettingsRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'SettingsRoute';
-
-  static const _i17.PageInfo<void> page = _i17.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i16.VideosPage]
-class VideosRoute extends _i17.PageRouteInfo<void> {
-  const VideosRoute({List<_i17.PageRouteInfo>? children})
-      : super(
-          VideosRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'VideosRoute';
-
-  static const _i17.PageInfo<void> page = _i17.PageInfo<void>(name);
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
 }

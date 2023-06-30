@@ -16,7 +16,7 @@ class IndexPage extends StatelessWidget {
         HomeRoute(),
         ConferencesRoute(),
         BooksRoute(),
-        DonateRoute(),
+        // DonateRoute(),
         MoreRoute(),
       ],
       bottomNavigationBuilder: (context, tabsRouter) {

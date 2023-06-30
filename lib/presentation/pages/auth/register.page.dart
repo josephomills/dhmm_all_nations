@@ -34,10 +34,16 @@ class RegisterPage extends StatelessWidget implements AutoRouteWrapper {
             context.router.replaceAll([const IndexRoute()]);
           } else {
             // show error message
-            final failure = state.failureOrSuccessOption
-                .getOrElse(() => const Left(AuthFailure.serverError()));
+            final failure = failureOrSuccess
+                .swap()
+                .getOrElse(() => const AuthFailure.serverError());
             ScaffoldMessenger.of(context).showSnackBar(snackBarWidget(
-                text: "", context: context, type: SnackBarType.error));
+                text: failure.maybeMap(
+                  serverError: (e) => "Server error ${e.message}",
+                  orElse: () => "Something went wron. Try again later.",
+                ),
+                context: context,
+                type: SnackBarType.error));
           }
         }
       },

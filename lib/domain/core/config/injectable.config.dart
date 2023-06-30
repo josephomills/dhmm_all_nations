@@ -10,26 +10,27 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:all_nations/application/app/app_bloc.dart' as _i3;
-import 'package:all_nations/application/auth/auth/auth_bloc.dart' as _i20;
+import 'package:all_nations/application/auth/auth/auth_bloc.dart' as _i21;
 import 'package:all_nations/application/auth/register/register_bloc.dart'
-    as _i17;
-import 'package:all_nations/application/books/books/books_bloc.dart' as _i21;
+    as _i18;
+import 'package:all_nations/application/books/books/books_bloc.dart' as _i22;
 import 'package:all_nations/application/books/collection/collection_bloc.dart'
-    as _i22;
+    as _i23;
 import 'package:all_nations/application/books/collections/collections_bloc.dart'
     as _i8;
 import 'package:all_nations/application/conference/conference_bloc.dart'
-    as _i23;
+    as _i24;
 import 'package:all_nations/application/conference/details/conference_details_bloc.dart'
     as _i9;
 import 'package:all_nations/application/donate/donate_bloc.dart' as _i13;
-import 'package:all_nations/application/home/home_bloc.dart' as _i24;
-import 'package:all_nations/application/settings/settings_bloc.dart' as _i18;
+import 'package:all_nations/application/home/home_bloc.dart' as _i25;
+import 'package:all_nations/application/profile/profile_bloc.dart' as _i17;
+import 'package:all_nations/application/settings/settings_bloc.dart' as _i19;
 import 'package:all_nations/domain/auth/auth.facade.dart' as _i4;
 import 'package:all_nations/domain/books/books.facade.dart' as _i6;
 import 'package:all_nations/domain/conference/conference.facade.dart' as _i10;
-import 'package:all_nations/domain/core/config/injectable_modules.dart' as _i25;
-import 'package:all_nations/domain/core/util/validator.dart' as _i19;
+import 'package:all_nations/domain/core/config/injectable_modules.dart' as _i26;
+import 'package:all_nations/domain/core/util/validator.dart' as _i20;
 import 'package:all_nations/domain/home/home.facade.dart' as _i15;
 import 'package:all_nations/infrastructure/auth/auth.repo.dart' as _i5;
 import 'package:all_nations/infrastructure/books/books.repo.dart' as _i7;
@@ -63,21 +64,22 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i13.DonateBloc>(() => _i13.DonateBloc());
     gh.factory<_i14.GlobalKey<_i14.FormState>>(() => appModule.formKey);
     gh.factory<_i15.HomeFacade>(() => _i16.HomeRepo());
-    gh.factory<_i17.RegisterBloc>(
-        () => _i17.RegisterBloc(gh<_i4.AuthFacade>()));
-    gh.singleton<_i18.SettingsBloc>(_i18.SettingsBloc());
-    gh.factory<_i19.Validator>(() => _i19.Validator());
-    gh.singleton<_i20.AuthBloc>(_i20.AuthBloc(gh<_i4.AuthFacade>()));
-    gh.factory<_i21.BooksBloc>(() => _i21.BooksBloc(
+    gh.factory<_i17.ProfileBloc>(() => _i17.ProfileBloc());
+    gh.factory<_i18.RegisterBloc>(
+        () => _i18.RegisterBloc(gh<_i4.AuthFacade>()));
+    gh.singleton<_i19.SettingsBloc>(_i19.SettingsBloc());
+    gh.factory<_i20.Validator>(() => _i20.Validator());
+    gh.singleton<_i21.AuthBloc>(_i21.AuthBloc(gh<_i4.AuthFacade>()));
+    gh.factory<_i22.BooksBloc>(() => _i22.BooksBloc(
           gh<_i12.Dio>(),
           gh<_i6.BooksFacade>(),
         ));
-    gh.factory<_i22.CollectionBloc>(() => _i22.CollectionBloc(gh<_i12.Dio>()));
-    gh.factory<_i23.ConferenceBloc>(
-        () => _i23.ConferenceBloc(gh<_i10.ConferenceFacade>()));
-    gh.factory<_i24.HomeBloc>(() => _i24.HomeBloc(gh<_i15.HomeFacade>()));
+    gh.factory<_i23.CollectionBloc>(() => _i23.CollectionBloc(gh<_i12.Dio>()));
+    gh.factory<_i24.ConferenceBloc>(
+        () => _i24.ConferenceBloc(gh<_i10.ConferenceFacade>()));
+    gh.factory<_i25.HomeBloc>(() => _i25.HomeBloc(gh<_i15.HomeFacade>()));
     return this;
   }
 }
 
-class _$AppModule extends _i25.AppModule {}
+class _$AppModule extends _i26.AppModule {}
