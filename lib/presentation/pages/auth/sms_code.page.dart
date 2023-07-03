@@ -32,7 +32,7 @@ class SMSCodePage extends StatelessWidget {
         action: authAction,
         actions: [
           AuthStateChangeAction<SignedIn>((context, state) async {
-            // Store user
+            // Store Firebase user
             if (!getIt.isRegistered<User>()) {
               getIt.registerSingleton<User>(state.user!);
             }

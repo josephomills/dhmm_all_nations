@@ -6,4 +6,5 @@ part 'auth.failure.freezed.dart';
 abstract class AuthFailure with _$AuthFailure {
   const factory AuthFailure.serverError({String? message}) = _ServerError;
   const factory AuthFailure.emailAlreadyInUse() = _EmailAlreadyInUse;
+  const factory AuthFailure.noUserFound({String? message}) = _NoUserFound;
 }

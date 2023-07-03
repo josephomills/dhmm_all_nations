@@ -1251,7 +1251,7 @@ mixin _$RegisterState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get validateFields => throw _privateConstructorUsedError;
   bool get showCountryDialog => throw _privateConstructorUsedError;
-  Option<Either<AuthFailure, User>> get failureOrSuccessOption =>
+  Option<Either<AuthFailure, UserModel>> get failureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1274,7 +1274,7 @@ abstract class $RegisterStateCopyWith<$Res> {
       bool isLoading,
       bool validateFields,
       bool showCountryDialog,
-      Option<Either<AuthFailure, User>> failureOrSuccessOption});
+      Option<Either<AuthFailure, UserModel>> failureOrSuccessOption});
 }
 
 /// @nodoc
@@ -1336,7 +1336,7 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
       failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AuthFailure, User>>,
+              as Option<Either<AuthFailure, UserModel>>,
     ) as $Val);
   }
 }
@@ -1358,7 +1358,7 @@ abstract class _$$_RegisterStateCopyWith<$Res>
       bool isLoading,
       bool validateFields,
       bool showCountryDialog,
-      Option<Either<AuthFailure, User>> failureOrSuccessOption});
+      Option<Either<AuthFailure, UserModel>> failureOrSuccessOption});
 }
 
 /// @nodoc
@@ -1418,7 +1418,7 @@ class __$$_RegisterStateCopyWithImpl<$Res>
       failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AuthFailure, User>>,
+              as Option<Either<AuthFailure, UserModel>>,
     ));
   }
 }
@@ -1454,7 +1454,7 @@ class _$_RegisterState implements _RegisterState {
   @override
   final bool showCountryDialog;
   @override
-  final Option<Either<AuthFailure, User>> failureOrSuccessOption;
+  final Option<Either<AuthFailure, UserModel>> failureOrSuccessOption;
 
   @override
   String toString() {
@@ -1514,7 +1514,7 @@ abstract class _RegisterState implements RegisterState {
       required final bool isLoading,
       required final bool validateFields,
       required final bool showCountryDialog,
-      required final Option<Either<AuthFailure, User>>
+      required final Option<Either<AuthFailure, UserModel>>
           failureOrSuccessOption}) = _$_RegisterState;
 
   @override
@@ -1534,7 +1534,7 @@ abstract class _RegisterState implements RegisterState {
   @override
   bool get showCountryDialog;
   @override
-  Option<Either<AuthFailure, User>> get failureOrSuccessOption;
+  Option<Either<AuthFailure, UserModel>> get failureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
   _$$_RegisterStateCopyWith<_$_RegisterState> get copyWith =>

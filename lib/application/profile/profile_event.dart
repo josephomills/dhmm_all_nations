@@ -10,8 +10,8 @@ class ProfileEvent with _$ProfileEvent {
       _LastnameChanged;
   const factory ProfileEvent.emailChanged({required String email}) =
       _EmailChanged;
-  const factory ProfileEvent.countryChanged(
-      {required CountryCode countryCode}) = _countryFirstnameChanged;
+  const factory ProfileEvent.countryChanged({required String countryCode}) =
+      _countryFirstnameChanged;
   const factory ProfileEvent.churchChanged({required String church}) =
       _CountryChanged;
   const factory ProfileEvent.countryDialogToggled() = _CountryDialogToggled;

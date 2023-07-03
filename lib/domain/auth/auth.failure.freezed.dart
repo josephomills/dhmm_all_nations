@@ -20,18 +20,21 @@ mixin _$AuthFailure {
   TResult when<TResult extends Object?>({
     required TResult Function(String? message) serverError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function(String? message) noUserFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? message)? serverError,
     TResult? Function()? emailAlreadyInUse,
+    TResult? Function(String? message)? noUserFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? message)? serverError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function(String? message)? noUserFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$AuthFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(_NoUserFound value) noUserFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_NoUserFound value)? noUserFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(_NoUserFound value)? noUserFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,6 +146,7 @@ class _$_ServerError implements _ServerError {
   TResult when<TResult extends Object?>({
     required TResult Function(String? message) serverError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function(String? message) noUserFound,
   }) {
     return serverError(message);
   }
@@ -149,6 +156,7 @@ class _$_ServerError implements _ServerError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? message)? serverError,
     TResult? Function()? emailAlreadyInUse,
+    TResult? Function(String? message)? noUserFound,
   }) {
     return serverError?.call(message);
   }
@@ -158,6 +166,7 @@ class _$_ServerError implements _ServerError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? message)? serverError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function(String? message)? noUserFound,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -171,6 +180,7 @@ class _$_ServerError implements _ServerError {
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(_NoUserFound value) noUserFound,
   }) {
     return serverError(this);
   }
@@ -180,6 +190,7 @@ class _$_ServerError implements _ServerError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_NoUserFound value)? noUserFound,
   }) {
     return serverError?.call(this);
   }
@@ -189,6 +200,7 @@ class _$_ServerError implements _ServerError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(_NoUserFound value)? noUserFound,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -247,6 +259,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   TResult when<TResult extends Object?>({
     required TResult Function(String? message) serverError,
     required TResult Function() emailAlreadyInUse,
+    required TResult Function(String? message) noUserFound,
   }) {
     return emailAlreadyInUse();
   }
@@ -256,6 +269,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? message)? serverError,
     TResult? Function()? emailAlreadyInUse,
+    TResult? Function(String? message)? noUserFound,
   }) {
     return emailAlreadyInUse?.call();
   }
@@ -265,6 +279,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? message)? serverError,
     TResult Function()? emailAlreadyInUse,
+    TResult Function(String? message)? noUserFound,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -278,6 +293,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(_NoUserFound value) noUserFound,
   }) {
     return emailAlreadyInUse(this);
   }
@@ -287,6 +303,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_NoUserFound value)? noUserFound,
   }) {
     return emailAlreadyInUse?.call(this);
   }
@@ -296,6 +313,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(_NoUserFound value)? noUserFound,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -307,4 +325,143 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
 
 abstract class _EmailAlreadyInUse implements AuthFailure {
   const factory _EmailAlreadyInUse() = _$_EmailAlreadyInUse;
+}
+
+/// @nodoc
+abstract class _$$_NoUserFoundCopyWith<$Res> {
+  factory _$$_NoUserFoundCopyWith(
+          _$_NoUserFound value, $Res Function(_$_NoUserFound) then) =
+      __$$_NoUserFoundCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? message});
+}
+
+/// @nodoc
+class __$$_NoUserFoundCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_NoUserFound>
+    implements _$$_NoUserFoundCopyWith<$Res> {
+  __$$_NoUserFoundCopyWithImpl(
+      _$_NoUserFound _value, $Res Function(_$_NoUserFound) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$_NoUserFound(
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_NoUserFound implements _NoUserFound {
+  const _$_NoUserFound({this.message});
+
+  @override
+  final String? message;
+
+  @override
+  String toString() {
+    return 'AuthFailure.noUserFound(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_NoUserFound &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_NoUserFoundCopyWith<_$_NoUserFound> get copyWith =>
+      __$$_NoUserFoundCopyWithImpl<_$_NoUserFound>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? message) serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function(String? message) noUserFound,
+  }) {
+    return noUserFound(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? message)? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function(String? message)? noUserFound,
+  }) {
+    return noUserFound?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? message)? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function(String? message)? noUserFound,
+    required TResult orElse(),
+  }) {
+    if (noUserFound != null) {
+      return noUserFound(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(_NoUserFound value) noUserFound,
+  }) {
+    return noUserFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_NoUserFound value)? noUserFound,
+  }) {
+    return noUserFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(_NoUserFound value)? noUserFound,
+    required TResult orElse(),
+  }) {
+    if (noUserFound != null) {
+      return noUserFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoUserFound implements AuthFailure {
+  const factory _NoUserFound({final String? message}) = _$_NoUserFound;
+
+  String? get message;
+  @JsonKey(ignore: true)
+  _$$_NoUserFoundCopyWith<_$_NoUserFound> get copyWith =>
+      throw _privateConstructorUsedError;
 }

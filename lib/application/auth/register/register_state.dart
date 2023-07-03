@@ -11,7 +11,7 @@ class RegisterState with _$RegisterState {
     required bool isLoading,
     required bool validateFields,
     required bool showCountryDialog,
-    required Option<Either<AuthFailure, User>> failureOrSuccessOption,
+    required Option<Either<AuthFailure, UserModel>> failureOrSuccessOption,
   }) = _RegisterState;
 
   factory RegisterState.initial() => RegisterState(

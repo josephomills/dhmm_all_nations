@@ -1,45 +1,43 @@
 import 'package:all_nations/domain/auth/auth.facade.dart';
-import 'package:all_nations/domain/core/config/injectable.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dartz/dartz.dart';
 import 'package:all_nations/domain/auth/auth.failure.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:all_nations/domain/core/config/injectable.dart';
+import 'package:all_nations/infrastructure/auth/user.model.dart';
+import 'package:all_nations/infrastructure/services/firebase/auth.service.dart';
+import 'package:all_nations/infrastructure/services/firebase/firestore.service.dart';
+import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
+/// Authentication datasource/repo
 @Injectable(as: AuthFacade)
 class AuthRepo implements AuthFacade {
-  final _firestore = FirebaseFirestore.instance;
-  final _firebaseAuth = FirebaseAuth.instance;
+  final _firebaseFirestoreService = getIt<FirebaseFirestoreService>();
+  final _firebaseAuthService = getIt<FirebaseAuthService>();
 
   @override
   Future<Either<AuthFailure, Unit>> logout() async {
-    await _firebaseAuth.signOut();
-    if (_firebaseAuth.currentUser == null) {
-      return const Right(unit);
-    }
-
-    return const Left(
-        AuthFailure.serverError(message: "Error: Failed to logout."));
+    getIt.unregister<UserModel>();
+    return await _firebaseAuthService.logout();
   }
 
   @override
-  Future<Either<AuthFailure, User>> register(
+  Future<Either<AuthFailure, UserModel>> register(
       {required Map<String, dynamic> details}) async {
-    return _firestore
-        .collection("users")
-        .doc(getIt<User>().uid)
-        .set(details)
-        .then((_) => Right(getIt<User>()
-          ..updateDisplayName(details["firstname"] + " " + details["lastname"])
-          ..updateEmail(details["email"])))
-      ..catchError((error) => const Left(AuthFailure.serverError()));
+    return _firebaseFirestoreService.register(details: details);
   }
 
   @override
   Future<Either<AuthFailure, bool>> isRegistered() async {
-    final doc = _firestore.collection("users").doc(getIt<User>().uid).get();
-    return doc.then((doc) => Right(doc.exists))
-      ..catchError(
-          (error) => Left(AuthFailure.serverError(message: error.message)));
+    return _firebaseFirestoreService.isRegistered();
   }
+
+  @override
+  Either<AuthFailure, UserModel> get currentUser {
+    final currentUser = _firebaseAuthService.currentUser;
+    return currentUser == null || !getIt.isRegistered<UserModel>()
+        ? const Left(AuthFailure.noUserFound())
+        : Right(getIt<UserModel>());
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> updateUser({required UserModel user}) {}
 }

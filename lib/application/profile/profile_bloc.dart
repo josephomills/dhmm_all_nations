@@ -1,8 +1,9 @@
 import 'dart:async';
 
+import 'package:all_nations/domain/auth/auth.facade.dart';
 import 'package:all_nations/domain/core/config/injectable.dart';
+import 'package:all_nations/infrastructure/auth/user.model.dart';
 import 'package:bloc/bloc.dart';
-import 'package:country_code_picker/country_code_picker.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -15,14 +16,26 @@ part 'profile_state.dart';
 
 @injectable
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
-  ProfileBloc() : super(const ProfileState()) {
+  final AuthFacade _authFacade;
+
+  ProfileBloc(this._authFacade) : super(const ProfileState()) {
     on<ProfileEvent>((event, emit) async {
       await event.map<FutureOr<void>>(
-        started: (e) => emit(state.copyWith(
-          validateFields: false,
-          isLoading: false,
-          updatedOption: none(),
-        )),
+        started: (e) async {
+          final currentUser =
+              _authFacade.currentUser.getOrElse(() => const UserModel());
+          emit(state.copyWith(
+            validateFields: false,
+            isLoading: false,
+            updatedOption: none(),
+            firstname: currentUser.firstname,
+            lastname: currentUser.lastname,
+            countryCode: currentUser.country,
+            church: currentUser.country,
+            email: currentUser.email,
+            user: currentUser,
+          ));
+        },
         editingToggled: (e) =>
             emit(state.copyWith(isEditing: !state.isEditing)),
         saveButtonPressed: (e) async {
@@ -34,6 +47,16 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
               updatedOption: none(),
               isLoading: true,
             ));
+
+            final updatedUser = getIt<UserModel>().copyWith(
+              church: state.church,
+              country: state.countryCode,
+              email: state.email,
+              firstname: state.firstname,
+              lastname: state.lastname,
+            );
+
+            _authFacade.updateUser();
 
             // update fields before saving
             final resp = await getIt<ParseUser>().save();
@@ -58,9 +81,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         emailChanged: (e) => emit(state.copyWith(email: e.email)),
         firstnameChanged: (e) => emit(state.copyWith(firstname: e.firstname)),
         lastnameChanged: (e) => emit(state.copyWith(lastname: e.lastname)),
-        countryDialogToggled: (e) => {
-          // emit(state.copyWith(showCountryDialog: !state.showCountryDialog));
-        },
+        countryDialogToggled: (e) =>
+            emit(state.copyWith(showCountryDialog: !state.showCountryDialog)),
       );
     });
   }

@@ -1,7 +1,7 @@
 import 'package:all_nations/application/app/app_bloc.dart';
 import 'package:all_nations/domain/core/config/injectable.dart';
 import 'package:all_nations/firebase_options.dart';
-import 'package:all_nations/infrastructure/services/parse.service.dart';
+import 'package:all_nations/infrastructure/services/b4a/b4a_config.dart';
 import 'package:all_nations/presentation/navigation/autoroute.dart';
 import 'package:all_nations/presentation/theme/app_theme.dart';
 import 'package:all_nations/presentation/widgets/loader.widget.dart';

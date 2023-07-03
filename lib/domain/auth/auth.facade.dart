@@ -1,7 +1,8 @@
 import 'package:all_nations/domain/auth/auth.failure.dart';
+import 'package:all_nations/infrastructure/auth/user.model.dart';
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
+/// Authentication Interface
 abstract class AuthFacade {
   /// Logout user
   Future<Either<AuthFailure, Unit>> logout();
@@ -13,6 +14,11 @@ abstract class AuthFacade {
   Future<Either<AuthFailure, bool>> isRegistered();
 
   /// Register a new user's details
-  Future<Either<AuthFailure, User>> register(
+  Future<Either<AuthFailure, UserModel>> register(
       {required Map<String, dynamic> details});
+
+  /// Get current user
+  Either<AuthFailure, UserModel> get currentUser;
+
+  Future<Either<AuthFailure, Unit>> updateUser({required UserModel user});
 }

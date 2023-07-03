@@ -2,17 +2,17 @@ import 'dart:async';
 
 import 'package:all_nations/domain/auth/auth.facade.dart';
 import 'package:all_nations/domain/auth/auth.failure.dart';
+import 'package:all_nations/infrastructure/auth/user.model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+part 'register_bloc.freezed.dart';
 part 'register_event.dart';
 part 'register_state.dart';
-part 'register_bloc.freezed.dart';
 
 @injectable
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
@@ -45,7 +45,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
               "lastname": state.lastname,
               "email": state.email,
               "church": state.church,
-              "country": state.countryCode.name!,
+              "country": state.countryCode.code!,
             });
 
             emit(
