@@ -10,15 +10,28 @@ import 'package:all_nations/presentation/widgets/snackbar.widget.dart';
 import 'package:all_nations/presentation/widgets/text_form_field.widget.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:dartz/dartz.dart';
+import 'package:dartz/dartz.dart' hide State;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 @RoutePage()
-class RegisterPage extends StatelessWidget implements AutoRouteWrapper {
-  RegisterPage({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget implements AutoRouteWrapper {
+  const RegisterPage({Key? key}) : super(key: key);
 
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+
+  @override
+  Widget wrappedRoute(BuildContext context) {
+    return BlocProvider(
+      create: (context) => getIt<RegisterBloc>(),
+      child: this,
+    );
+  }
+}
+
+class _RegisterPageState extends State<RegisterPage> {
   final _formKey = getIt<GlobalKey<FormState>>();
 
   @override
@@ -39,8 +52,8 @@ class RegisterPage extends StatelessWidget implements AutoRouteWrapper {
                 .getOrElse(() => const AuthFailure.serverError());
             ScaffoldMessenger.of(context).showSnackBar(snackBarWidget(
                 text: failure.maybeMap(
-                  serverError: (e) => "Server error ${e.message}",
-                  orElse: () => "Something went wron. Try again later.",
+                  serverError: (e) => "Server error: ${e.message}",
+                  orElse: () => "Something went wrong. Try again later.",
                 ),
                 context: context,
                 type: SnackBarType.error));
@@ -117,6 +130,9 @@ class RegisterPage extends StatelessWidget implements AutoRouteWrapper {
                     prefixIcon: CountryCodePicker(
                       initialSelection: state.countryCode.code,
                       showDropDownButton: true,
+                      showCountryOnly: true,
+                      alignLeft: true,
+                      showOnlyCountryWhenClosed: true,
                       onChanged: (countryCode) => context
                           .read<RegisterBloc>()
                           .add(RegisterEvent.countryChanged(
@@ -143,14 +159,6 @@ class RegisterPage extends StatelessWidget implements AutoRouteWrapper {
           ),
         );
       },
-    );
-  }
-
-  @override
-  Widget wrappedRoute(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<RegisterBloc>(),
-      child: this,
     );
   }
 }

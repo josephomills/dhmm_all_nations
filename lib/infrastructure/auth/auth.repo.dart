@@ -15,7 +15,9 @@ class AuthRepo implements AuthFacade {
 
   @override
   Future<Either<AuthFailure, Unit>> logout() async {
-    getIt.unregister<UserModel>();
+    if (getIt.isRegistered<UserModel>()) {
+      getIt.unregister<UserModel>();
+    }
     return await _firebaseAuthService.logout();
   }
 
@@ -39,5 +41,8 @@ class AuthRepo implements AuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> updateUser({required UserModel user}) {}
+  Future<Either<AuthFailure, Unit>> updateUser(
+      {required UserModel updatedUser}) {
+    return _firebaseFirestoreService.updateUser(updatedUser: updatedUser);
+  }
 }

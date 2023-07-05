@@ -20,5 +20,6 @@ abstract class AuthFacade {
   /// Get current user
   Either<AuthFailure, UserModel> get currentUser;
 
-  Future<Either<AuthFailure, Unit>> updateUser({required UserModel user});
+  Future<Either<AuthFailure, Unit>> updateUser(
+      {required UserModel updatedUser});
 }

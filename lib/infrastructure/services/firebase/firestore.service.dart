@@ -13,13 +13,11 @@ class FirebaseFirestoreService {
   Future<Either<AuthFailure, UserModel>> register(
       {required Map<String, dynamic> details}) async {
     try {
-      await _firestore
-          .collection("users")
-          .doc(getIt<UserModel>().uid)
-          .set(details);
+      await _firestore.collection("users").doc(getIt<User>().uid).set(details);
       getIt<User>()
         ..updateDisplayName(details["firstname"] + " " + details["lastname"])
         ..updateEmail(details["email"]);
+
       final newUser = UserModel(
         uid: getIt<User>().uid,
         email: details["email"],
@@ -28,6 +26,8 @@ class FirebaseFirestoreService {
         church: details["church"] ?? "",
         country: details["country"],
       );
+
+      print(newUser);
       // Store user model
       if (!getIt.isRegistered<UserModel>()) {
         getIt.registerSingleton<UserModel>(newUser);
@@ -39,12 +39,19 @@ class FirebaseFirestoreService {
     }
   }
 
-  Future<Either<AuthFailure, Unit>> updateUser(
-      {required UserModel newUser}) async {
-    await _firestore
-        .collection("users")
-        .doc(getIt<UserModel>().uid)
-        .set(newUser.toJSON());
+  Future<Either<AuthFailure, Unit>> updateUser({
+    required UserModel updatedUser,
+  }) async {
+    try {
+      await _firestore
+          .collection("users")
+          .doc(getIt<UserModel>().uid)
+          .update(updatedUser.toJson());
+
+      return const Right(unit);
+    } catch (e) {
+      return const Left(AuthFailure.serverError());
+    }
   }
 
   Future<Either<AuthFailure, bool>> isRegistered() async {

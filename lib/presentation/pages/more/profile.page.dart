@@ -11,9 +11,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 @RoutePage()
-class ProfilePage extends StatelessWidget implements AutoRouteWrapper {
+class ProfilePage extends StatefulWidget implements AutoRouteWrapper {
   const ProfilePage({super.key});
 
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+
+  @override
+  Widget wrappedRoute(BuildContext context) {
+    return BlocProvider(
+      create: (context) =>
+          getIt<ProfileBloc>()..add(const ProfileEvent.started()),
+      child: this,
+    );
+  }
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<FormState> _formKey = getIt<GlobalKey<FormState>>();
@@ -25,7 +39,7 @@ class ProfilePage extends StatelessWidget implements AutoRouteWrapper {
           onTap: () => unfocus(context),
           child: Scaffold(
             appBar: AppBar(
-              title: Text(context.router.currentChild!.meta["title"]),
+              title: const Text("Profile"),
               actions: [
                 Row(
                   children: [
@@ -86,7 +100,7 @@ class ProfilePage extends StatelessWidget implements AutoRouteWrapper {
                   const SizedBox(height: 16),
                   TextFormFieldWidget(
                     text: state.email,
-                    hint: "What is your last email? *",
+                    hint: "What is your email? *",
                     label: "Email",
                     validator: getIt<Validator>().validateEmail,
                     suffixIcon: const Icon(LineAwesomeIcons.at),
@@ -135,8 +149,10 @@ class ProfilePage extends StatelessWidget implements AutoRouteWrapper {
                   const SizedBox(height: 32),
                   if (state.isEditing)
                     ButtonWidget(
-                      onTap: () => context.read<ProfileBloc>().add(
-                          ProfileEvent.saveButtonPressed(formKey: _formKey)),
+                      onTap: state.updatedOption.getOrElse(() => false)
+                          ? () => context.read<ProfileBloc>().add(
+                              ProfileEvent.saveButtonPressed(formKey: _formKey))
+                          : null,
                       label: "Save",
                     ),
                   if (state.isEditing) const SizedBox(height: 16),
@@ -155,15 +171,6 @@ class ProfilePage extends StatelessWidget implements AutoRouteWrapper {
           ),
         );
       },
-    );
-  }
-
-  @override
-  Widget wrappedRoute(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          getIt<ProfileBloc>()..add(const ProfileEvent.started()),
-      child: this,
     );
   }
 }

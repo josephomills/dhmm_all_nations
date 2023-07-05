@@ -66,11 +66,9 @@ abstract class $AppRouter extends _i18.RootStackRouter {
       );
     },
     RegisterRoute.name: (routeData) {
-      final args = routeData.argsAs<RegisterRouteArgs>(
-          orElse: () => const RegisterRouteArgs());
       return _i18.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i18.WrappedRoute(child: _i5.RegisterPage(key: args.key)),
+        child: _i18.WrappedRoute(child: const _i5.RegisterPage()),
       );
     },
     SMSCodeRoute.name: (routeData) {
@@ -225,31 +223,16 @@ class PhoneInputRoute extends _i18.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.RegisterPage]
-class RegisterRoute extends _i18.PageRouteInfo<RegisterRouteArgs> {
-  RegisterRoute({
-    _i19.Key? key,
-    List<_i18.PageRouteInfo>? children,
-  }) : super(
+class RegisterRoute extends _i18.PageRouteInfo<void> {
+  const RegisterRoute({List<_i18.PageRouteInfo>? children})
+      : super(
           RegisterRoute.name,
-          args: RegisterRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'RegisterRoute';
 
-  static const _i18.PageInfo<RegisterRouteArgs> page =
-      _i18.PageInfo<RegisterRouteArgs>(name);
-}
-
-class RegisterRouteArgs {
-  const RegisterRouteArgs({this.key});
-
-  final _i19.Key? key;
-
-  @override
-  String toString() {
-    return 'RegisterRouteArgs{key: $key}';
-  }
+  static const _i18.PageInfo<void> page = _i18.PageInfo<void>(name);
 }
 
 /// generated route for

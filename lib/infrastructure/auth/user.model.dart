@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part "user.model.freezed.dart";
-// part 'user.model.g.dart';
+part 'user.model.g.dart';
 
 @freezed
 class UserModel with _$UserModel {
@@ -14,5 +14,6 @@ class UserModel with _$UserModel {
     @Default("") String email,
   }) = _UserModel;
 
-  factory UserModel.fr
+  factory UserModel.fromJson(Map<String, dynamic> json) =>
+      _$UserModelFromJson(json);
 }

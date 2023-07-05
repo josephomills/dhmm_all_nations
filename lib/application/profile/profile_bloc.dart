@@ -8,7 +8,6 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
 part 'profile_bloc.freezed.dart';
 part 'profile_event.dart';
@@ -24,6 +23,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         started: (e) async {
           final currentUser =
               _authFacade.currentUser.getOrElse(() => const UserModel());
+          print(currentUser);
           emit(state.copyWith(
             validateFields: false,
             isLoading: false,
@@ -31,7 +31,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
             firstname: currentUser.firstname,
             lastname: currentUser.lastname,
             countryCode: currentUser.country,
-            church: currentUser.country,
+            church: currentUser.church,
             email: currentUser.email,
             user: currentUser,
           ));
@@ -56,15 +56,21 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
               lastname: state.lastname,
             );
 
-            _authFacade.updateUser();
+            final failureOrUnit =
+                await _authFacade.updateUser(updatedUser: updatedUser);
 
-            // update fields before saving
-            final resp = await getIt<ParseUser>().save();
-
-            emit(state.copyWith(
-              updatedOption: some(resp.success),
-              isLoading: true,
-            ));
+            failureOrUnit.fold((failure) {
+              emit(state.copyWith(
+                updatedOption: const None(),
+                isLoading: false,
+              ));
+            }, (unit) {
+              emit(state.copyWith(
+                updatedOption: const None(),
+                isLoading: false,
+                user: updatedUser,
+              ));
+            });
           } else {
             emit(state.copyWith(
               validateFields: true,
@@ -73,14 +79,18 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
             ));
           }
         },
-        churchChanged: (e) => emit(state.copyWith(church: e.church)),
+        churchChanged: (e) => emit(
+            state.copyWith(church: e.church, updatedOption: const Some(true))),
         countryChanged: (e) => emit(state.copyWith(
           countryCode: e.countryCode,
           // showCountryDialog: false,
         )),
-        emailChanged: (e) => emit(state.copyWith(email: e.email)),
-        firstnameChanged: (e) => emit(state.copyWith(firstname: e.firstname)),
-        lastnameChanged: (e) => emit(state.copyWith(lastname: e.lastname)),
+        emailChanged: (e) => emit(
+            state.copyWith(email: e.email, updatedOption: const Some(true))),
+        firstnameChanged: (e) => emit(state.copyWith(
+            firstname: e.firstname, updatedOption: const Some(true))),
+        lastnameChanged: (e) => emit(state.copyWith(
+            lastname: e.lastname, updatedOption: const Some(true))),
         countryDialogToggled: (e) =>
             emit(state.copyWith(showCountryDialog: !state.showCountryDialog)),
       );
