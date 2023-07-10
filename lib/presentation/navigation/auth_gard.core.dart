@@ -30,7 +30,7 @@ class AuthGuard extends AutoRouteGuard {
         if (registered) {
           resolver.next();
         } else {
-          router.replaceAll([RegisterRoute()]);
+          router.replaceAll([const RegisterRoute()]);
         }
       }
     } else {
