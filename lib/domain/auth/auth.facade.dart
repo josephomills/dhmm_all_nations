@@ -18,8 +18,10 @@ abstract class AuthFacade {
       {required Map<String, dynamic> details});
 
   /// Get current user
-  Either<AuthFailure, UserModel> get currentUser;
+  Future<Either<AuthFailure, UserModel>> get currentUser;
 
   Future<Either<AuthFailure, Unit>> updateUser(
       {required UserModel updatedUser});
+
+  Future<Either<AuthFailure, Unit>> deleteCurrentUser();
 }

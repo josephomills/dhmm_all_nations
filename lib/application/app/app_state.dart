@@ -3,12 +3,9 @@ part of 'app_bloc.dart';
 @freezed
 class AppState with _$AppState {
   const factory AppState({
-    required bool isLoading,
-    required ThemeMode themeMode,
+    @Default(false) bool isLoading,
+    @Default(ThemeMode.system) ThemeMode themeMode,
+    @Default("en") String translateTo,
+    @Default("gh") String flag,
   }) = _AppState;
-
-  factory AppState.initial() => const AppState(
-        isLoading: false,
-        themeMode: ThemeMode.system,
-      );
 }

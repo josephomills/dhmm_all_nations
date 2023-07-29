@@ -155,41 +155,44 @@ class VideoPostWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Row(
-          children: [
-            CircleAvatar(
-              backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
-              radius: 24,
-              child: Icon(
-                getPostIconData(category: post.category!.postCategory),
-                color: Theme.of(context).colorScheme.onSecondaryContainer,
+        Expanded(
+          child: Row(
+            children: [
+              CircleAvatar(
+                backgroundColor:
+                    Theme.of(context).colorScheme.secondaryContainer,
+                radius: 24,
+                child: Icon(
+                  getPostIconData(category: post.category!.postCategory),
+                  color: Theme.of(context).colorScheme.onSecondaryContainer,
+                ),
               ),
-            ),
-            const SizedBox(width: 8),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Title
-                Text(
-                  post.title!,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                        color: Theme.of(context).colorScheme.onSecondary,
-                      ),
-                ),
-                //Category
-                Text(
-                  post.category!.postCategory.formattedName,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: Theme.of(context).colorScheme.onSecondary,
-                      ),
-                ),
-              ],
-            ),
-          ],
+              const SizedBox(width: 8),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Title
+                  Text(
+                    post.title!,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                          color: Theme.of(context).colorScheme.onSecondary,
+                        ),
+                  ),
+                  //Category
+                  Text(
+                    post.category!.postCategory.formattedName,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: Theme.of(context).colorScheme.onSecondary,
+                        ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
         // Options
         IconButton(

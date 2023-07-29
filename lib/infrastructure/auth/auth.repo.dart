@@ -33,16 +33,47 @@ class AuthRepo implements AuthFacade {
   }
 
   @override
-  Either<AuthFailure, UserModel> get currentUser {
+  Future<Either<AuthFailure, UserModel>> get currentUser async {
+    if (getIt.isRegistered<UserModel>()) {
+      return Right(getIt<UserModel>());
+    }
+
     final currentUser = _firebaseAuthService.currentUser;
-    return currentUser == null || !getIt.isRegistered<UserModel>()
-        ? const Left(AuthFailure.noUserFound())
-        : Right(getIt<UserModel>());
+    // get user details from firestore
+    if (currentUser != null) {
+      var failureOrProfile =
+          await _firebaseFirestoreService.getUserProfile(id: currentUser.uid);
+      return failureOrProfile.fold(
+        (failure) => Left(failure),
+        (profile) {
+          //add uid
+          profile["uid"] = currentUser.uid;
+          return Right(profileToUserModel(profile: profile));
+        },
+      );
+    } else {
+      return const Left(AuthFailure.noUserFound());
+    }
   }
 
   @override
   Future<Either<AuthFailure, Unit>> updateUser(
       {required UserModel updatedUser}) {
     return _firebaseFirestoreService.updateUser(updatedUser: updatedUser);
+  }
+
+  UserModel profileToUserModel({required Map<String, dynamic> profile}) =>
+      UserModel(
+        firstname: profile["firstname"],
+        lastname: profile["lastname"],
+        country: profile["country"],
+        church: profile["church"],
+        email: profile["email"],
+        uid: profile["uid"],
+      );
+
+  @override
+  Future<Either<AuthFailure, Unit>> deleteCurrentUser() {
+    return _firebaseAuthService.deleteUser();
   }
 }

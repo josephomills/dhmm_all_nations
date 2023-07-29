@@ -21,6 +21,7 @@ mixin _$AuthFailure {
     required TResult Function(String? message) serverError,
     required TResult Function() emailAlreadyInUse,
     required TResult Function(String? message) noUserFound,
+    required TResult Function(String? message) noRecentLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$AuthFailure {
     TResult? Function(String? message)? serverError,
     TResult? Function()? emailAlreadyInUse,
     TResult? Function(String? message)? noUserFound,
+    TResult? Function(String? message)? noRecentLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$AuthFailure {
     TResult Function(String? message)? serverError,
     TResult Function()? emailAlreadyInUse,
     TResult Function(String? message)? noUserFound,
+    TResult Function(String? message)? noRecentLogin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$AuthFailure {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_NoRecentLogin value) noRecentLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$AuthFailure {
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_NoRecentLogin value)? noRecentLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$AuthFailure {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_NoRecentLogin value)? noRecentLogin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,6 +153,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function(String? message) serverError,
     required TResult Function() emailAlreadyInUse,
     required TResult Function(String? message) noUserFound,
+    required TResult Function(String? message) noRecentLogin,
   }) {
     return serverError(message);
   }
@@ -157,6 +164,7 @@ class _$_ServerError implements _ServerError {
     TResult? Function(String? message)? serverError,
     TResult? Function()? emailAlreadyInUse,
     TResult? Function(String? message)? noUserFound,
+    TResult? Function(String? message)? noRecentLogin,
   }) {
     return serverError?.call(message);
   }
@@ -167,6 +175,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(String? message)? serverError,
     TResult Function()? emailAlreadyInUse,
     TResult Function(String? message)? noUserFound,
+    TResult Function(String? message)? noRecentLogin,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -181,6 +190,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_NoRecentLogin value) noRecentLogin,
   }) {
     return serverError(this);
   }
@@ -191,6 +201,7 @@ class _$_ServerError implements _ServerError {
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_NoRecentLogin value)? noRecentLogin,
   }) {
     return serverError?.call(this);
   }
@@ -201,6 +212,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_NoRecentLogin value)? noRecentLogin,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -260,6 +272,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
     required TResult Function(String? message) serverError,
     required TResult Function() emailAlreadyInUse,
     required TResult Function(String? message) noUserFound,
+    required TResult Function(String? message) noRecentLogin,
   }) {
     return emailAlreadyInUse();
   }
@@ -270,6 +283,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
     TResult? Function(String? message)? serverError,
     TResult? Function()? emailAlreadyInUse,
     TResult? Function(String? message)? noUserFound,
+    TResult? Function(String? message)? noRecentLogin,
   }) {
     return emailAlreadyInUse?.call();
   }
@@ -280,6 +294,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
     TResult Function(String? message)? serverError,
     TResult Function()? emailAlreadyInUse,
     TResult Function(String? message)? noUserFound,
+    TResult Function(String? message)? noRecentLogin,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -294,6 +309,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_NoRecentLogin value) noRecentLogin,
   }) {
     return emailAlreadyInUse(this);
   }
@@ -304,6 +320,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_NoRecentLogin value)? noRecentLogin,
   }) {
     return emailAlreadyInUse?.call(this);
   }
@@ -314,6 +331,7 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_NoRecentLogin value)? noRecentLogin,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -394,6 +412,7 @@ class _$_NoUserFound implements _NoUserFound {
     required TResult Function(String? message) serverError,
     required TResult Function() emailAlreadyInUse,
     required TResult Function(String? message) noUserFound,
+    required TResult Function(String? message) noRecentLogin,
   }) {
     return noUserFound(message);
   }
@@ -404,6 +423,7 @@ class _$_NoUserFound implements _NoUserFound {
     TResult? Function(String? message)? serverError,
     TResult? Function()? emailAlreadyInUse,
     TResult? Function(String? message)? noUserFound,
+    TResult? Function(String? message)? noRecentLogin,
   }) {
     return noUserFound?.call(message);
   }
@@ -414,6 +434,7 @@ class _$_NoUserFound implements _NoUserFound {
     TResult Function(String? message)? serverError,
     TResult Function()? emailAlreadyInUse,
     TResult Function(String? message)? noUserFound,
+    TResult Function(String? message)? noRecentLogin,
     required TResult orElse(),
   }) {
     if (noUserFound != null) {
@@ -428,6 +449,7 @@ class _$_NoUserFound implements _NoUserFound {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_NoRecentLogin value) noRecentLogin,
   }) {
     return noUserFound(this);
   }
@@ -438,6 +460,7 @@ class _$_NoUserFound implements _NoUserFound {
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_NoRecentLogin value)? noRecentLogin,
   }) {
     return noUserFound?.call(this);
   }
@@ -448,6 +471,7 @@ class _$_NoUserFound implements _NoUserFound {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_NoRecentLogin value)? noRecentLogin,
     required TResult orElse(),
   }) {
     if (noUserFound != null) {
@@ -463,5 +487,150 @@ abstract class _NoUserFound implements AuthFailure {
   String? get message;
   @JsonKey(ignore: true)
   _$$_NoUserFoundCopyWith<_$_NoUserFound> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_NoRecentLoginCopyWith<$Res> {
+  factory _$$_NoRecentLoginCopyWith(
+          _$_NoRecentLogin value, $Res Function(_$_NoRecentLogin) then) =
+      __$$_NoRecentLoginCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? message});
+}
+
+/// @nodoc
+class __$$_NoRecentLoginCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_NoRecentLogin>
+    implements _$$_NoRecentLoginCopyWith<$Res> {
+  __$$_NoRecentLoginCopyWithImpl(
+      _$_NoRecentLogin _value, $Res Function(_$_NoRecentLogin) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$_NoRecentLogin(
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_NoRecentLogin implements _NoRecentLogin {
+  const _$_NoRecentLogin({this.message});
+
+  @override
+  final String? message;
+
+  @override
+  String toString() {
+    return 'AuthFailure.noRecentLogin(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_NoRecentLogin &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_NoRecentLoginCopyWith<_$_NoRecentLogin> get copyWith =>
+      __$$_NoRecentLoginCopyWithImpl<_$_NoRecentLogin>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? message) serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function(String? message) noUserFound,
+    required TResult Function(String? message) noRecentLogin,
+  }) {
+    return noRecentLogin(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? message)? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function(String? message)? noUserFound,
+    TResult? Function(String? message)? noRecentLogin,
+  }) {
+    return noRecentLogin?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? message)? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function(String? message)? noUserFound,
+    TResult Function(String? message)? noRecentLogin,
+    required TResult orElse(),
+  }) {
+    if (noRecentLogin != null) {
+      return noRecentLogin(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_NoRecentLogin value) noRecentLogin,
+  }) {
+    return noRecentLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_NoRecentLogin value)? noRecentLogin,
+  }) {
+    return noRecentLogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_NoRecentLogin value)? noRecentLogin,
+    required TResult orElse(),
+  }) {
+    if (noRecentLogin != null) {
+      return noRecentLogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoRecentLogin implements AuthFailure {
+  const factory _NoRecentLogin({final String? message}) = _$_NoRecentLogin;
+
+  String? get message;
+  @JsonKey(ignore: true)
+  _$$_NoRecentLoginCopyWith<_$_NoRecentLogin> get copyWith =>
       throw _privateConstructorUsedError;
 }

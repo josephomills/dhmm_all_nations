@@ -1,5 +1,6 @@
 import 'package:all_nations/application/app/app_bloc.dart';
 import 'package:all_nations/domain/core/config/injectable.dart';
+import 'package:all_nations/domain/core/util/util.dart';
 import 'package:all_nations/firebase_options.dart';
 import 'package:all_nations/infrastructure/services/b4a/b4a_config.dart';
 import 'package:all_nations/presentation/navigation/autoroute.dart';
@@ -47,125 +48,110 @@ Future<void> main() async {
     PhoneAuthProvider(),
   ]);
 
+  // await downloadTranslations();
+
   // Initialise Injectable and GetIt
   initInjectable(Environment.prod);
 
-  runApp(AllNations());
+  runApp(const AllNations());
 }
 
-class AllNations extends StatelessWidget {
-  AllNations({super.key});
+class AllNations extends StatefulWidget {
+  const AllNations({super.key});
 
+  static void restartApp(BuildContext context) {
+    context.findAncestorStateOfType<_AllNationsState>()!.restartApp();
+  }
+
+  static List<Locale> get getSupportedLocales => [
+        const Locale("en", "GB"),
+        const Locale("es", "ES"),
+        const Locale("fr", "FR"),
+        const Locale("pt", "PT"),
+      ];
+
+  @override
+  State<AllNations> createState() => _AllNationsState();
+}
+
+class _AllNationsState extends State<AllNations> {
   final _appRouter = AppRouter();
+  Key key = UniqueKey();
+
+  void restartApp() {
+    setState(() {
+      key = UniqueKey();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AppBloc, AppState>(
-      bloc: getIt<AppBloc>(),
-      listener: (context, state) {
-        // TODO: implement listener
-      },
-      builder: (context, state) {
-        return MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          title: 'All Nations',
-          themeMode: state.themeMode,
-          theme: AppTheme.light,
-          darkTheme: AppTheme.dark,
-          routerDelegate: _appRouter.delegate(),
-          routeInformationParser: _appRouter.defaultRouteParser(),
-          builder: (context, widget) => Stack(
-            children: [
-              ResponsiveWrapper.builder(
-                BouncingScrollWrapper.builder(context, widget!),
-                defaultScale: true,
-              ),
-              if (state.isLoading) const LoaderWidget(),
-            ],
-          ),
-          locale: const Locale('en'),
-          supportedLocales: getSupportedLocales,
-          localizationsDelegates: const [
-            CountryLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-        );
-      },
+    return KeyedSubtree(
+      key: key,
+      child: BlocConsumer<AppBloc, AppState>(
+        bloc: getIt<AppBloc>(),
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          return FutureBuilder<void>(
+              future: initTranslation(state.translateTo),
+              builder: (context, snapshot) {
+                // handle any errors
+                if (snapshot.hasError) {
+                  return const LoaderWidget();
+                }
+                return MaterialApp.router(
+                  onGenerateTitle: (context) =>
+                      "All Nations (Localized)", // TODO: use this for a localized title
+                  debugShowCheckedModeBanner: false,
+                  title: 'All Nations',
+                  themeMode: state.themeMode,
+                  theme: AppTheme.light,
+                  darkTheme: AppTheme.dark,
+                  routerDelegate: _appRouter.delegate(),
+                  routeInformationParser: _appRouter.defaultRouteParser(),
+                  builder: (context, widget) => Stack(
+                    children: [
+                      ResponsiveWrapper.builder(
+                        BouncingScrollWrapper.builder(context, widget!),
+                        defaultScale: true,
+                      ),
+                      if (state.isLoading) const LoaderWidget(),
+                    ],
+                  ),
+                  locale: const Locale('en'),
+                  supportedLocales: AllNations.getSupportedLocales,
+                  localizationsDelegates: const [
+                    CountryLocalizations.delegate,
+                    GlobalMaterialLocalizations.delegate,
+                    GlobalWidgetsLocalizations.delegate,
+                    GlobalCupertinoLocalizations.delegate,
+                  ],
+                  localeResolutionCallback: (locale, supportedLocales) {
+                    for (final supportedLocale in supportedLocales) {
+                      if (locale!.languageCode ==
+                          supportedLocale.languageCode) {
+                        // getIt<AppBloc>().add(
+                        //   AppEvent.translatedToLanguage(
+                        //     translatedTo: supportedLocale.languageCode,
+                        //   ),
+                        // );
+                        return supportedLocale;
+                      }
+                    }
+                    // fall back to first language (English)
+                    // getIt<AppBloc>().add(
+                    //   AppEvent.translatedToLanguage(
+                    //     translatedTo: supportedLocales.first.languageCode,
+                    //   ),
+                    // );
+                    return supportedLocales.first;
+                  },
+                );
+              });
+        },
+      ),
     );
   }
-
-  List<Locale> get getSupportedLocales => [
-        const Locale("af"),
-        const Locale("am"),
-        const Locale("ar"),
-        const Locale("az"),
-        const Locale("be"),
-        const Locale("bg"),
-        const Locale("bn"),
-        const Locale("bs"),
-        const Locale("ca"),
-        const Locale("cs"),
-        const Locale("da"),
-        const Locale("de"),
-        const Locale("el"),
-        const Locale("en"),
-        const Locale("es"),
-        const Locale("et"),
-        const Locale("fa"),
-        const Locale("fi"),
-        const Locale("fr"),
-        const Locale("gl"),
-        const Locale("ha"),
-        const Locale("he"),
-        const Locale("hi"),
-        const Locale("hr"),
-        const Locale("hu"),
-        const Locale("hy"),
-        const Locale("id"),
-        const Locale("is"),
-        const Locale("it"),
-        const Locale("ja"),
-        const Locale("ka"),
-        const Locale("kk"),
-        const Locale("km"),
-        const Locale("ko"),
-        const Locale("ku"),
-        const Locale("ky"),
-        const Locale("lt"),
-        const Locale("lv"),
-        const Locale("mk"),
-        const Locale("ml"),
-        const Locale("mn"),
-        const Locale("ms"),
-        const Locale("nb"),
-        const Locale("nl"),
-        const Locale("nn"),
-        const Locale("no"),
-        const Locale("pl"),
-        const Locale("ps"),
-        const Locale("pt"),
-        const Locale("ro"),
-        const Locale("ru"),
-        const Locale("sd"),
-        const Locale("sk"),
-        const Locale("sl"),
-        const Locale("so"),
-        const Locale("sq"),
-        const Locale("sr"),
-        const Locale("sv"),
-        const Locale("ta"),
-        const Locale("tg"),
-        const Locale("th"),
-        const Locale("tk"),
-        const Locale("tr"),
-        const Locale("tt"),
-        const Locale("uk"),
-        const Locale("ug"),
-        const Locale("ur"),
-        const Locale("uz"),
-        const Locale("vi"),
-        const Locale("zh")
-      ];
 }

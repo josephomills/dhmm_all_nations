@@ -18,6 +18,7 @@ class TextFormFieldWidget extends StatelessWidget {
     this.enabled,
     this.readOnly = false,
     this.allowInteractiveSelection,
+    this.controller,
   }) : super(key: key);
 
   final String? text;
@@ -35,10 +36,12 @@ class TextFormFieldWidget extends StatelessWidget {
   final bool? enabled;
   final bool readOnly;
   final bool? allowInteractiveSelection;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       enabled: enabled,
       readOnly: readOnly,
       enableInteractiveSelection: allowInteractiveSelection,

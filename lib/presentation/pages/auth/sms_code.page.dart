@@ -1,6 +1,7 @@
 import 'package:all_nations/domain/auth/auth.facade.dart';
 import 'package:all_nations/domain/core/config/injectable.dart';
 import 'package:all_nations/domain/core/util/util.dart';
+import 'package:all_nations/infrastructure/auth/user.model.dart';
 import 'package:all_nations/presentation/navigation/autoroute.gr.dart';
 import 'package:all_nations/presentation/theme/app_theme.dart';
 import 'package:all_nations/presentation/widgets/auth_header_builder.widget.dart';
@@ -43,9 +44,21 @@ class SMSCodePage extends StatelessWidget {
             if (failureOrBool.isRight()) {
               final registered = failureOrBool.getOrElse(() => false);
               if (registered) {
+                // inject current user
+                final failureOrUserModel =
+                    await getIt<AuthFacade>().currentUser;
+                failureOrUserModel.fold(
+                  (l) => null,
+                  (userModel) {
+                    if (!getIt.isRegistered<UserModel>()) {
+                      getIt.registerSingleton<UserModel>(userModel);
+                    }
+                  },
+                );
+
                 context.router.replaceAll([const IndexRoute()]);
               } else {
-                context.router.replaceAll([RegisterRoute()]);
+                context.router.replaceAll([const RegisterRoute()]);
               }
             } else {
               // TODO: Show error and go back to login page
@@ -61,7 +74,7 @@ class SMSCodePage extends StatelessWidget {
                 if (registered) {
                   context.router.replaceAll([const IndexRoute()]);
                 } else {
-                  context.router.replaceAll([RegisterRoute()]);
+                  context.router.replaceAll([const RegisterRoute()]);
                 }
               } else {
                 // TODO: Show error and go back to login page
@@ -74,7 +87,7 @@ class SMSCodePage extends StatelessWidget {
             if (!getIt.isRegistered<User>()) {
               getIt.registerSingleton<User>(state.credential.user!);
             }
-            context.router.replaceAll([RegisterRoute()]);
+            context.router.replaceAll([const RegisterRoute()]);
           }),
         ],
       ),

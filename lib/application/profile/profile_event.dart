@@ -17,4 +17,5 @@ class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.countryDialogToggled() = _CountryDialogToggled;
   const factory ProfileEvent.saveButtonPressed(
       {required GlobalKey<FormState> formKey}) = _SaveButtonPressed;
+  const factory ProfileEvent.deleteAccountConfirmed() = _DeleteAccountConfirmed;
 }

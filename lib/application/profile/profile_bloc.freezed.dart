@@ -27,6 +27,7 @@ mixin _$ProfileEvent {
     required TResult Function(String church) churchChanged,
     required TResult Function() countryDialogToggled,
     required TResult Function(GlobalKey<FormState> formKey) saveButtonPressed,
+    required TResult Function() deleteAccountConfirmed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +41,7 @@ mixin _$ProfileEvent {
     TResult? Function(String church)? churchChanged,
     TResult? Function()? countryDialogToggled,
     TResult? Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult? Function()? deleteAccountConfirmed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +55,7 @@ mixin _$ProfileEvent {
     TResult Function(String church)? churchChanged,
     TResult Function()? countryDialogToggled,
     TResult Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult Function()? deleteAccountConfirmed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,6 +70,8 @@ mixin _$ProfileEvent {
     required TResult Function(_CountryChanged value) churchChanged,
     required TResult Function(_CountryDialogToggled value) countryDialogToggled,
     required TResult Function(_SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(_DeleteAccountConfirmed value)
+        deleteAccountConfirmed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +85,7 @@ mixin _$ProfileEvent {
     TResult? Function(_CountryChanged value)? churchChanged,
     TResult? Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult? Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult? Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,6 +99,7 @@ mixin _$ProfileEvent {
     TResult Function(_CountryChanged value)? churchChanged,
     TResult Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -162,6 +169,7 @@ class _$_Started implements _Started {
     required TResult Function(String church) churchChanged,
     required TResult Function() countryDialogToggled,
     required TResult Function(GlobalKey<FormState> formKey) saveButtonPressed,
+    required TResult Function() deleteAccountConfirmed,
   }) {
     return started();
   }
@@ -178,6 +186,7 @@ class _$_Started implements _Started {
     TResult? Function(String church)? churchChanged,
     TResult? Function()? countryDialogToggled,
     TResult? Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult? Function()? deleteAccountConfirmed,
   }) {
     return started?.call();
   }
@@ -194,6 +203,7 @@ class _$_Started implements _Started {
     TResult Function(String church)? churchChanged,
     TResult Function()? countryDialogToggled,
     TResult Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult Function()? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -214,6 +224,8 @@ class _$_Started implements _Started {
     required TResult Function(_CountryChanged value) churchChanged,
     required TResult Function(_CountryDialogToggled value) countryDialogToggled,
     required TResult Function(_SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(_DeleteAccountConfirmed value)
+        deleteAccountConfirmed,
   }) {
     return started(this);
   }
@@ -230,6 +242,7 @@ class _$_Started implements _Started {
     TResult? Function(_CountryChanged value)? churchChanged,
     TResult? Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult? Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult? Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
   }) {
     return started?.call(this);
   }
@@ -246,6 +259,7 @@ class _$_Started implements _Started {
     TResult Function(_CountryChanged value)? churchChanged,
     TResult Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -306,6 +320,7 @@ class _$_EditingToggled implements _EditingToggled {
     required TResult Function(String church) churchChanged,
     required TResult Function() countryDialogToggled,
     required TResult Function(GlobalKey<FormState> formKey) saveButtonPressed,
+    required TResult Function() deleteAccountConfirmed,
   }) {
     return editingToggled();
   }
@@ -322,6 +337,7 @@ class _$_EditingToggled implements _EditingToggled {
     TResult? Function(String church)? churchChanged,
     TResult? Function()? countryDialogToggled,
     TResult? Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult? Function()? deleteAccountConfirmed,
   }) {
     return editingToggled?.call();
   }
@@ -338,6 +354,7 @@ class _$_EditingToggled implements _EditingToggled {
     TResult Function(String church)? churchChanged,
     TResult Function()? countryDialogToggled,
     TResult Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult Function()? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (editingToggled != null) {
@@ -358,6 +375,8 @@ class _$_EditingToggled implements _EditingToggled {
     required TResult Function(_CountryChanged value) churchChanged,
     required TResult Function(_CountryDialogToggled value) countryDialogToggled,
     required TResult Function(_SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(_DeleteAccountConfirmed value)
+        deleteAccountConfirmed,
   }) {
     return editingToggled(this);
   }
@@ -374,6 +393,7 @@ class _$_EditingToggled implements _EditingToggled {
     TResult? Function(_CountryChanged value)? churchChanged,
     TResult? Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult? Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult? Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
   }) {
     return editingToggled?.call(this);
   }
@@ -390,6 +410,7 @@ class _$_EditingToggled implements _EditingToggled {
     TResult Function(_CountryChanged value)? churchChanged,
     TResult Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (editingToggled != null) {
@@ -477,6 +498,7 @@ class _$_FirstnameChanged implements _FirstnameChanged {
     required TResult Function(String church) churchChanged,
     required TResult Function() countryDialogToggled,
     required TResult Function(GlobalKey<FormState> formKey) saveButtonPressed,
+    required TResult Function() deleteAccountConfirmed,
   }) {
     return firstnameChanged(firstname);
   }
@@ -493,6 +515,7 @@ class _$_FirstnameChanged implements _FirstnameChanged {
     TResult? Function(String church)? churchChanged,
     TResult? Function()? countryDialogToggled,
     TResult? Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult? Function()? deleteAccountConfirmed,
   }) {
     return firstnameChanged?.call(firstname);
   }
@@ -509,6 +532,7 @@ class _$_FirstnameChanged implements _FirstnameChanged {
     TResult Function(String church)? churchChanged,
     TResult Function()? countryDialogToggled,
     TResult Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult Function()? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (firstnameChanged != null) {
@@ -529,6 +553,8 @@ class _$_FirstnameChanged implements _FirstnameChanged {
     required TResult Function(_CountryChanged value) churchChanged,
     required TResult Function(_CountryDialogToggled value) countryDialogToggled,
     required TResult Function(_SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(_DeleteAccountConfirmed value)
+        deleteAccountConfirmed,
   }) {
     return firstnameChanged(this);
   }
@@ -545,6 +571,7 @@ class _$_FirstnameChanged implements _FirstnameChanged {
     TResult? Function(_CountryChanged value)? churchChanged,
     TResult? Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult? Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult? Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
   }) {
     return firstnameChanged?.call(this);
   }
@@ -561,6 +588,7 @@ class _$_FirstnameChanged implements _FirstnameChanged {
     TResult Function(_CountryChanged value)? churchChanged,
     TResult Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (firstnameChanged != null) {
@@ -654,6 +682,7 @@ class _$_LastnameChanged implements _LastnameChanged {
     required TResult Function(String church) churchChanged,
     required TResult Function() countryDialogToggled,
     required TResult Function(GlobalKey<FormState> formKey) saveButtonPressed,
+    required TResult Function() deleteAccountConfirmed,
   }) {
     return lastnameChanged(lastname);
   }
@@ -670,6 +699,7 @@ class _$_LastnameChanged implements _LastnameChanged {
     TResult? Function(String church)? churchChanged,
     TResult? Function()? countryDialogToggled,
     TResult? Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult? Function()? deleteAccountConfirmed,
   }) {
     return lastnameChanged?.call(lastname);
   }
@@ -686,6 +716,7 @@ class _$_LastnameChanged implements _LastnameChanged {
     TResult Function(String church)? churchChanged,
     TResult Function()? countryDialogToggled,
     TResult Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult Function()? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (lastnameChanged != null) {
@@ -706,6 +737,8 @@ class _$_LastnameChanged implements _LastnameChanged {
     required TResult Function(_CountryChanged value) churchChanged,
     required TResult Function(_CountryDialogToggled value) countryDialogToggled,
     required TResult Function(_SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(_DeleteAccountConfirmed value)
+        deleteAccountConfirmed,
   }) {
     return lastnameChanged(this);
   }
@@ -722,6 +755,7 @@ class _$_LastnameChanged implements _LastnameChanged {
     TResult? Function(_CountryChanged value)? churchChanged,
     TResult? Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult? Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult? Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
   }) {
     return lastnameChanged?.call(this);
   }
@@ -738,6 +772,7 @@ class _$_LastnameChanged implements _LastnameChanged {
     TResult Function(_CountryChanged value)? churchChanged,
     TResult Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (lastnameChanged != null) {
@@ -830,6 +865,7 @@ class _$_EmailChanged implements _EmailChanged {
     required TResult Function(String church) churchChanged,
     required TResult Function() countryDialogToggled,
     required TResult Function(GlobalKey<FormState> formKey) saveButtonPressed,
+    required TResult Function() deleteAccountConfirmed,
   }) {
     return emailChanged(email);
   }
@@ -846,6 +882,7 @@ class _$_EmailChanged implements _EmailChanged {
     TResult? Function(String church)? churchChanged,
     TResult? Function()? countryDialogToggled,
     TResult? Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult? Function()? deleteAccountConfirmed,
   }) {
     return emailChanged?.call(email);
   }
@@ -862,6 +899,7 @@ class _$_EmailChanged implements _EmailChanged {
     TResult Function(String church)? churchChanged,
     TResult Function()? countryDialogToggled,
     TResult Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult Function()? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -882,6 +920,8 @@ class _$_EmailChanged implements _EmailChanged {
     required TResult Function(_CountryChanged value) churchChanged,
     required TResult Function(_CountryDialogToggled value) countryDialogToggled,
     required TResult Function(_SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(_DeleteAccountConfirmed value)
+        deleteAccountConfirmed,
   }) {
     return emailChanged(this);
   }
@@ -898,6 +938,7 @@ class _$_EmailChanged implements _EmailChanged {
     TResult? Function(_CountryChanged value)? churchChanged,
     TResult? Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult? Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult? Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
   }) {
     return emailChanged?.call(this);
   }
@@ -914,6 +955,7 @@ class _$_EmailChanged implements _EmailChanged {
     TResult Function(_CountryChanged value)? churchChanged,
     TResult Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -1008,6 +1050,7 @@ class _$_countryFirstnameChanged implements _countryFirstnameChanged {
     required TResult Function(String church) churchChanged,
     required TResult Function() countryDialogToggled,
     required TResult Function(GlobalKey<FormState> formKey) saveButtonPressed,
+    required TResult Function() deleteAccountConfirmed,
   }) {
     return countryChanged(countryCode);
   }
@@ -1024,6 +1067,7 @@ class _$_countryFirstnameChanged implements _countryFirstnameChanged {
     TResult? Function(String church)? churchChanged,
     TResult? Function()? countryDialogToggled,
     TResult? Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult? Function()? deleteAccountConfirmed,
   }) {
     return countryChanged?.call(countryCode);
   }
@@ -1040,6 +1084,7 @@ class _$_countryFirstnameChanged implements _countryFirstnameChanged {
     TResult Function(String church)? churchChanged,
     TResult Function()? countryDialogToggled,
     TResult Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult Function()? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (countryChanged != null) {
@@ -1060,6 +1105,8 @@ class _$_countryFirstnameChanged implements _countryFirstnameChanged {
     required TResult Function(_CountryChanged value) churchChanged,
     required TResult Function(_CountryDialogToggled value) countryDialogToggled,
     required TResult Function(_SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(_DeleteAccountConfirmed value)
+        deleteAccountConfirmed,
   }) {
     return countryChanged(this);
   }
@@ -1076,6 +1123,7 @@ class _$_countryFirstnameChanged implements _countryFirstnameChanged {
     TResult? Function(_CountryChanged value)? churchChanged,
     TResult? Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult? Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult? Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
   }) {
     return countryChanged?.call(this);
   }
@@ -1092,6 +1140,7 @@ class _$_countryFirstnameChanged implements _countryFirstnameChanged {
     TResult Function(_CountryChanged value)? churchChanged,
     TResult Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (countryChanged != null) {
@@ -1184,6 +1233,7 @@ class _$_CountryChanged implements _CountryChanged {
     required TResult Function(String church) churchChanged,
     required TResult Function() countryDialogToggled,
     required TResult Function(GlobalKey<FormState> formKey) saveButtonPressed,
+    required TResult Function() deleteAccountConfirmed,
   }) {
     return churchChanged(church);
   }
@@ -1200,6 +1250,7 @@ class _$_CountryChanged implements _CountryChanged {
     TResult? Function(String church)? churchChanged,
     TResult? Function()? countryDialogToggled,
     TResult? Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult? Function()? deleteAccountConfirmed,
   }) {
     return churchChanged?.call(church);
   }
@@ -1216,6 +1267,7 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(String church)? churchChanged,
     TResult Function()? countryDialogToggled,
     TResult Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult Function()? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (churchChanged != null) {
@@ -1236,6 +1288,8 @@ class _$_CountryChanged implements _CountryChanged {
     required TResult Function(_CountryChanged value) churchChanged,
     required TResult Function(_CountryDialogToggled value) countryDialogToggled,
     required TResult Function(_SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(_DeleteAccountConfirmed value)
+        deleteAccountConfirmed,
   }) {
     return churchChanged(this);
   }
@@ -1252,6 +1306,7 @@ class _$_CountryChanged implements _CountryChanged {
     TResult? Function(_CountryChanged value)? churchChanged,
     TResult? Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult? Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult? Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
   }) {
     return churchChanged?.call(this);
   }
@@ -1268,6 +1323,7 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(_CountryChanged value)? churchChanged,
     TResult Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (churchChanged != null) {
@@ -1334,6 +1390,7 @@ class _$_CountryDialogToggled implements _CountryDialogToggled {
     required TResult Function(String church) churchChanged,
     required TResult Function() countryDialogToggled,
     required TResult Function(GlobalKey<FormState> formKey) saveButtonPressed,
+    required TResult Function() deleteAccountConfirmed,
   }) {
     return countryDialogToggled();
   }
@@ -1350,6 +1407,7 @@ class _$_CountryDialogToggled implements _CountryDialogToggled {
     TResult? Function(String church)? churchChanged,
     TResult? Function()? countryDialogToggled,
     TResult? Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult? Function()? deleteAccountConfirmed,
   }) {
     return countryDialogToggled?.call();
   }
@@ -1366,6 +1424,7 @@ class _$_CountryDialogToggled implements _CountryDialogToggled {
     TResult Function(String church)? churchChanged,
     TResult Function()? countryDialogToggled,
     TResult Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult Function()? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (countryDialogToggled != null) {
@@ -1386,6 +1445,8 @@ class _$_CountryDialogToggled implements _CountryDialogToggled {
     required TResult Function(_CountryChanged value) churchChanged,
     required TResult Function(_CountryDialogToggled value) countryDialogToggled,
     required TResult Function(_SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(_DeleteAccountConfirmed value)
+        deleteAccountConfirmed,
   }) {
     return countryDialogToggled(this);
   }
@@ -1402,6 +1463,7 @@ class _$_CountryDialogToggled implements _CountryDialogToggled {
     TResult? Function(_CountryChanged value)? churchChanged,
     TResult? Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult? Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult? Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
   }) {
     return countryDialogToggled?.call(this);
   }
@@ -1418,6 +1480,7 @@ class _$_CountryDialogToggled implements _CountryDialogToggled {
     TResult Function(_CountryChanged value)? churchChanged,
     TResult Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (countryDialogToggled != null) {
@@ -1505,6 +1568,7 @@ class _$_SaveButtonPressed implements _SaveButtonPressed {
     required TResult Function(String church) churchChanged,
     required TResult Function() countryDialogToggled,
     required TResult Function(GlobalKey<FormState> formKey) saveButtonPressed,
+    required TResult Function() deleteAccountConfirmed,
   }) {
     return saveButtonPressed(formKey);
   }
@@ -1521,6 +1585,7 @@ class _$_SaveButtonPressed implements _SaveButtonPressed {
     TResult? Function(String church)? churchChanged,
     TResult? Function()? countryDialogToggled,
     TResult? Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult? Function()? deleteAccountConfirmed,
   }) {
     return saveButtonPressed?.call(formKey);
   }
@@ -1537,6 +1602,7 @@ class _$_SaveButtonPressed implements _SaveButtonPressed {
     TResult Function(String church)? churchChanged,
     TResult Function()? countryDialogToggled,
     TResult Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult Function()? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (saveButtonPressed != null) {
@@ -1557,6 +1623,8 @@ class _$_SaveButtonPressed implements _SaveButtonPressed {
     required TResult Function(_CountryChanged value) churchChanged,
     required TResult Function(_CountryDialogToggled value) countryDialogToggled,
     required TResult Function(_SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(_DeleteAccountConfirmed value)
+        deleteAccountConfirmed,
   }) {
     return saveButtonPressed(this);
   }
@@ -1573,6 +1641,7 @@ class _$_SaveButtonPressed implements _SaveButtonPressed {
     TResult? Function(_CountryChanged value)? churchChanged,
     TResult? Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult? Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult? Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
   }) {
     return saveButtonPressed?.call(this);
   }
@@ -1589,6 +1658,7 @@ class _$_SaveButtonPressed implements _SaveButtonPressed {
     TResult Function(_CountryChanged value)? churchChanged,
     TResult Function(_CountryDialogToggled value)? countryDialogToggled,
     TResult Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
     required TResult orElse(),
   }) {
     if (saveButtonPressed != null) {
@@ -1609,6 +1679,158 @@ abstract class _SaveButtonPressed implements ProfileEvent {
 }
 
 /// @nodoc
+abstract class _$$_DeleteAccountConfirmedCopyWith<$Res> {
+  factory _$$_DeleteAccountConfirmedCopyWith(_$_DeleteAccountConfirmed value,
+          $Res Function(_$_DeleteAccountConfirmed) then) =
+      __$$_DeleteAccountConfirmedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_DeleteAccountConfirmedCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_DeleteAccountConfirmed>
+    implements _$$_DeleteAccountConfirmedCopyWith<$Res> {
+  __$$_DeleteAccountConfirmedCopyWithImpl(_$_DeleteAccountConfirmed _value,
+      $Res Function(_$_DeleteAccountConfirmed) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_DeleteAccountConfirmed implements _DeleteAccountConfirmed {
+  const _$_DeleteAccountConfirmed();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.deleteAccountConfirmed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_DeleteAccountConfirmed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() editingToggled,
+    required TResult Function(String firstname) firstnameChanged,
+    required TResult Function(String lastname) lastnameChanged,
+    required TResult Function(String email) emailChanged,
+    required TResult Function(String countryCode) countryChanged,
+    required TResult Function(String church) churchChanged,
+    required TResult Function() countryDialogToggled,
+    required TResult Function(GlobalKey<FormState> formKey) saveButtonPressed,
+    required TResult Function() deleteAccountConfirmed,
+  }) {
+    return deleteAccountConfirmed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? editingToggled,
+    TResult? Function(String firstname)? firstnameChanged,
+    TResult? Function(String lastname)? lastnameChanged,
+    TResult? Function(String email)? emailChanged,
+    TResult? Function(String countryCode)? countryChanged,
+    TResult? Function(String church)? churchChanged,
+    TResult? Function()? countryDialogToggled,
+    TResult? Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult? Function()? deleteAccountConfirmed,
+  }) {
+    return deleteAccountConfirmed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? editingToggled,
+    TResult Function(String firstname)? firstnameChanged,
+    TResult Function(String lastname)? lastnameChanged,
+    TResult Function(String email)? emailChanged,
+    TResult Function(String countryCode)? countryChanged,
+    TResult Function(String church)? churchChanged,
+    TResult Function()? countryDialogToggled,
+    TResult Function(GlobalKey<FormState> formKey)? saveButtonPressed,
+    TResult Function()? deleteAccountConfirmed,
+    required TResult orElse(),
+  }) {
+    if (deleteAccountConfirmed != null) {
+      return deleteAccountConfirmed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_EditingToggled value) editingToggled,
+    required TResult Function(_FirstnameChanged value) firstnameChanged,
+    required TResult Function(_LastnameChanged value) lastnameChanged,
+    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_countryFirstnameChanged value) countryChanged,
+    required TResult Function(_CountryChanged value) churchChanged,
+    required TResult Function(_CountryDialogToggled value) countryDialogToggled,
+    required TResult Function(_SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(_DeleteAccountConfirmed value)
+        deleteAccountConfirmed,
+  }) {
+    return deleteAccountConfirmed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_EditingToggled value)? editingToggled,
+    TResult? Function(_FirstnameChanged value)? firstnameChanged,
+    TResult? Function(_LastnameChanged value)? lastnameChanged,
+    TResult? Function(_EmailChanged value)? emailChanged,
+    TResult? Function(_countryFirstnameChanged value)? countryChanged,
+    TResult? Function(_CountryChanged value)? churchChanged,
+    TResult? Function(_CountryDialogToggled value)? countryDialogToggled,
+    TResult? Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult? Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
+  }) {
+    return deleteAccountConfirmed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_EditingToggled value)? editingToggled,
+    TResult Function(_FirstnameChanged value)? firstnameChanged,
+    TResult Function(_LastnameChanged value)? lastnameChanged,
+    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_countryFirstnameChanged value)? countryChanged,
+    TResult Function(_CountryChanged value)? churchChanged,
+    TResult Function(_CountryDialogToggled value)? countryDialogToggled,
+    TResult Function(_SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(_DeleteAccountConfirmed value)? deleteAccountConfirmed,
+    required TResult orElse(),
+  }) {
+    if (deleteAccountConfirmed != null) {
+      return deleteAccountConfirmed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteAccountConfirmed implements ProfileEvent {
+  const factory _DeleteAccountConfirmed() = _$_DeleteAccountConfirmed;
+}
+
+/// @nodoc
 mixin _$ProfileState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
@@ -1621,6 +1843,8 @@ mixin _$ProfileState {
   String get church => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   UserModel get user => throw _privateConstructorUsedError;
+  Option<AuthFailure> get deleteFailureOption =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileStateCopyWith<ProfileState> get copyWith =>
@@ -1644,7 +1868,8 @@ abstract class $ProfileStateCopyWith<$Res> {
       String countryCode,
       String church,
       String email,
-      UserModel user});
+      UserModel user,
+      Option<AuthFailure> deleteFailureOption});
 
   $UserModelCopyWith<$Res> get user;
 }
@@ -1673,6 +1898,7 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
     Object? church = null,
     Object? email = null,
     Object? user = null,
+    Object? deleteFailureOption = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -1719,6 +1945,10 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserModel,
+      deleteFailureOption: null == deleteFailureOption
+          ? _value.deleteFailureOption
+          : deleteFailureOption // ignore: cast_nullable_to_non_nullable
+              as Option<AuthFailure>,
     ) as $Val);
   }
 
@@ -1750,7 +1980,8 @@ abstract class _$$_ProfileStateCopyWith<$Res>
       String countryCode,
       String church,
       String email,
-      UserModel user});
+      UserModel user,
+      Option<AuthFailure> deleteFailureOption});
 
   @override
   $UserModelCopyWith<$Res> get user;
@@ -1778,6 +2009,7 @@ class __$$_ProfileStateCopyWithImpl<$Res>
     Object? church = null,
     Object? email = null,
     Object? user = null,
+    Object? deleteFailureOption = null,
   }) {
     return _then(_$_ProfileState(
       isLoading: null == isLoading
@@ -1824,6 +2056,10 @@ class __$$_ProfileStateCopyWithImpl<$Res>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserModel,
+      deleteFailureOption: null == deleteFailureOption
+          ? _value.deleteFailureOption
+          : deleteFailureOption // ignore: cast_nullable_to_non_nullable
+              as Option<AuthFailure>,
     ));
   }
 }
@@ -1842,7 +2078,8 @@ class _$_ProfileState implements _ProfileState {
       this.countryCode = "GH",
       this.church = "",
       this.email = "",
-      this.user = const UserModel()});
+      this.user = const UserModel(),
+      this.deleteFailureOption = const None()});
 
   @override
   @JsonKey()
@@ -1877,10 +2114,13 @@ class _$_ProfileState implements _ProfileState {
   @override
   @JsonKey()
   final UserModel user;
+  @override
+  @JsonKey()
+  final Option<AuthFailure> deleteFailureOption;
 
   @override
   String toString() {
-    return 'ProfileState(isLoading: $isLoading, isEditing: $isEditing, validateFields: $validateFields, showCountryDialog: $showCountryDialog, updatedOption: $updatedOption, firstname: $firstname, lastname: $lastname, countryCode: $countryCode, church: $church, email: $email, user: $user)';
+    return 'ProfileState(isLoading: $isLoading, isEditing: $isEditing, validateFields: $validateFields, showCountryDialog: $showCountryDialog, updatedOption: $updatedOption, firstname: $firstname, lastname: $lastname, countryCode: $countryCode, church: $church, email: $email, user: $user, deleteFailureOption: $deleteFailureOption)';
   }
 
   @override
@@ -1906,7 +2146,9 @@ class _$_ProfileState implements _ProfileState {
                 other.countryCode == countryCode) &&
             (identical(other.church, church) || other.church == church) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.deleteFailureOption, deleteFailureOption) ||
+                other.deleteFailureOption == deleteFailureOption));
   }
 
   @override
@@ -1922,7 +2164,8 @@ class _$_ProfileState implements _ProfileState {
       countryCode,
       church,
       email,
-      user);
+      user,
+      deleteFailureOption);
 
   @JsonKey(ignore: true)
   @override
@@ -1943,7 +2186,8 @@ abstract class _ProfileState implements ProfileState {
       final String countryCode,
       final String church,
       final String email,
-      final UserModel user}) = _$_ProfileState;
+      final UserModel user,
+      final Option<AuthFailure> deleteFailureOption}) = _$_ProfileState;
 
   @override
   bool get isLoading;
@@ -1967,6 +2211,8 @@ abstract class _ProfileState implements ProfileState {
   String get email;
   @override
   UserModel get user;
+  @override
+  Option<AuthFailure> get deleteFailureOption;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileStateCopyWith<_$_ProfileState> get copyWith =>

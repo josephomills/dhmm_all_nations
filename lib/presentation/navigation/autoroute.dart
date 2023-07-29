@@ -1,4 +1,4 @@
-import 'package:all_nations/presentation/navigation/auth_gard.core.dart';
+import 'package:all_nations/presentation/navigation/auth_gard.dart';
 import 'package:all_nations/presentation/navigation/autoroute.gr.dart';
 import 'package:auto_route/auto_route.dart';
 
@@ -36,5 +36,6 @@ class AppRouter extends $AppRouter {
       path: "/profile",
       meta: const {"title": "Profile"},
     ),
+    AutoRoute(page: LanguageRoute.page, path: "/language"),
   ];
 }

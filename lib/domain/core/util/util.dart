@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:all_nations/domain/core/extensions/string.ext.dart';
+import 'package:bye_bye_localization/bye_bye_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:intl/intl.dart';
@@ -38,4 +39,15 @@ bool get isDarkMode {
 String formatNumLikes({required num number}) {
   final formatter = NumberFormat.compact(locale: "en_US");
   return formatter.format(number);
+}
+
+initTranslation(String translateTo) async {
+  await TranslationManager().init(
+    originLanguage: Languages.ENGLISH,
+    translateToLanguage: translateTo,
+  );
+}
+
+downloadTranslations() async {
+  ["en", "fr", "pt", "es"].forEach(initTranslation);
 }

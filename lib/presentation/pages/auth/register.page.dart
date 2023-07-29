@@ -39,24 +39,25 @@ class _RegisterPageState extends State<RegisterPage> {
     return BlocConsumer<RegisterBloc, RegisterState>(
       listener: (context, state) {
         if (state.failureOrSuccessOption.isSome()) {
-          final failureOrSuccess = state.failureOrSuccessOption
+          final failureOrUserModel = state.failureOrSuccessOption
               .getOrElse(() => const Left(AuthFailure.serverError()));
 
-          if (failureOrSuccess.isRight()) {
+          if (failureOrUserModel.isRight()) {
             // go to home page
             context.router.replaceAll([const IndexRoute()]);
           } else {
             // show error message
-            final failure = failureOrSuccess
+            final failure = failureOrUserModel
                 .swap()
                 .getOrElse(() => const AuthFailure.serverError());
             ScaffoldMessenger.of(context).showSnackBar(snackBarWidget(
-                text: failure.maybeMap(
-                  serverError: (e) => "Server error: ${e.message}",
-                  orElse: () => "Something went wrong. Try again later.",
-                ),
-                context: context,
-                type: SnackBarType.error));
+              text: failure.maybeMap(
+                serverError: (e) => "Server error: ${e.message}",
+                orElse: () => "Something went wrong. Try again later.",
+              ),
+              context: context,
+              type: SnackBarType.error,
+            ));
           }
         }
       },
@@ -147,9 +148,11 @@ class _RegisterPageState extends State<RegisterPage> {
                     label: "Register",
                     onTap: () {
                       unfocus(context);
-                      context.read<RegisterBloc>().add(
-                          RegisterEvent.registerButtonPressed(
-                              formKey: _formKey));
+                      context
+                          .read<RegisterBloc>()
+                          .add(RegisterEvent.registerButtonPressed(
+                            formKey: _formKey,
+                          ));
                     },
                     isLoading: state.isLoading,
                   ),

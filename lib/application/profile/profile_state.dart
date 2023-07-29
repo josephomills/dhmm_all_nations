@@ -14,13 +14,10 @@ class ProfileState with _$ProfileState {
     @Default("") String church,
     @Default("") String email,
     @Default(UserModel()) UserModel user,
+    @Default(None()) Option<AuthFailure> deleteFailureOption,
   }) = _ProfileState;
 
   factory ProfileState.initial() => ProfileState(
-        isEditing: false,
-        isLoading: false,
-        validateFields: false,
-        updatedOption: none(),
         user: getIt<UserModel>(),
       );
 }

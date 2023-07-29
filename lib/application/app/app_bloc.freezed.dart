@@ -20,18 +20,21 @@ mixin _$AppEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(ThemeMode themeMode) themeModeToggled,
+    required TResult Function(String? translatedTo) translatedToLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(ThemeMode themeMode)? themeModeToggled,
+    TResult? Function(String? translatedTo)? translatedToLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(ThemeMode themeMode)? themeModeToggled,
+    TResult Function(String? translatedTo)? translatedToLanguage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$AppEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_ThemeModeToggled value) themeModeToggled,
+    required TResult Function(_TranslatedToLanguage value) translatedToLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_ThemeModeToggled value)? themeModeToggled,
+    TResult? Function(_TranslatedToLanguage value)? translatedToLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ThemeModeToggled value)? themeModeToggled,
+    TResult Function(_TranslatedToLanguage value)? translatedToLanguage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,6 +118,7 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(ThemeMode themeMode) themeModeToggled,
+    required TResult Function(String? translatedTo) translatedToLanguage,
   }) {
     return started();
   }
@@ -121,6 +128,7 @@ class _$_Started implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(ThemeMode themeMode)? themeModeToggled,
+    TResult? Function(String? translatedTo)? translatedToLanguage,
   }) {
     return started?.call();
   }
@@ -130,6 +138,7 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(ThemeMode themeMode)? themeModeToggled,
+    TResult Function(String? translatedTo)? translatedToLanguage,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -143,6 +152,7 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_ThemeModeToggled value) themeModeToggled,
+    required TResult Function(_TranslatedToLanguage value) translatedToLanguage,
   }) {
     return started(this);
   }
@@ -152,6 +162,7 @@ class _$_Started implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_ThemeModeToggled value)? themeModeToggled,
+    TResult? Function(_TranslatedToLanguage value)? translatedToLanguage,
   }) {
     return started?.call(this);
   }
@@ -161,6 +172,7 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ThemeModeToggled value)? themeModeToggled,
+    TResult Function(_TranslatedToLanguage value)? translatedToLanguage,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -241,6 +253,7 @@ class _$_ThemeModeToggled implements _ThemeModeToggled {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(ThemeMode themeMode) themeModeToggled,
+    required TResult Function(String? translatedTo) translatedToLanguage,
   }) {
     return themeModeToggled(themeMode);
   }
@@ -250,6 +263,7 @@ class _$_ThemeModeToggled implements _ThemeModeToggled {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(ThemeMode themeMode)? themeModeToggled,
+    TResult? Function(String? translatedTo)? translatedToLanguage,
   }) {
     return themeModeToggled?.call(themeMode);
   }
@@ -259,6 +273,7 @@ class _$_ThemeModeToggled implements _ThemeModeToggled {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(ThemeMode themeMode)? themeModeToggled,
+    TResult Function(String? translatedTo)? translatedToLanguage,
     required TResult orElse(),
   }) {
     if (themeModeToggled != null) {
@@ -272,6 +287,7 @@ class _$_ThemeModeToggled implements _ThemeModeToggled {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_ThemeModeToggled value) themeModeToggled,
+    required TResult Function(_TranslatedToLanguage value) translatedToLanguage,
   }) {
     return themeModeToggled(this);
   }
@@ -281,6 +297,7 @@ class _$_ThemeModeToggled implements _ThemeModeToggled {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_ThemeModeToggled value)? themeModeToggled,
+    TResult? Function(_TranslatedToLanguage value)? translatedToLanguage,
   }) {
     return themeModeToggled?.call(this);
   }
@@ -290,6 +307,7 @@ class _$_ThemeModeToggled implements _ThemeModeToggled {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ThemeModeToggled value)? themeModeToggled,
+    TResult Function(_TranslatedToLanguage value)? translatedToLanguage,
     required TResult orElse(),
   }) {
     if (themeModeToggled != null) {
@@ -310,9 +328,153 @@ abstract class _ThemeModeToggled implements AppEvent {
 }
 
 /// @nodoc
+abstract class _$$_TranslatedToLanguageCopyWith<$Res> {
+  factory _$$_TranslatedToLanguageCopyWith(_$_TranslatedToLanguage value,
+          $Res Function(_$_TranslatedToLanguage) then) =
+      __$$_TranslatedToLanguageCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? translatedTo});
+}
+
+/// @nodoc
+class __$$_TranslatedToLanguageCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$_TranslatedToLanguage>
+    implements _$$_TranslatedToLanguageCopyWith<$Res> {
+  __$$_TranslatedToLanguageCopyWithImpl(_$_TranslatedToLanguage _value,
+      $Res Function(_$_TranslatedToLanguage) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? translatedTo = freezed,
+  }) {
+    return _then(_$_TranslatedToLanguage(
+      translatedTo: freezed == translatedTo
+          ? _value.translatedTo
+          : translatedTo // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TranslatedToLanguage implements _TranslatedToLanguage {
+  const _$_TranslatedToLanguage({this.translatedTo});
+
+  @override
+  final String? translatedTo;
+
+  @override
+  String toString() {
+    return 'AppEvent.translatedToLanguage(translatedTo: $translatedTo)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TranslatedToLanguage &&
+            (identical(other.translatedTo, translatedTo) ||
+                other.translatedTo == translatedTo));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, translatedTo);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TranslatedToLanguageCopyWith<_$_TranslatedToLanguage> get copyWith =>
+      __$$_TranslatedToLanguageCopyWithImpl<_$_TranslatedToLanguage>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(ThemeMode themeMode) themeModeToggled,
+    required TResult Function(String? translatedTo) translatedToLanguage,
+  }) {
+    return translatedToLanguage(translatedTo);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(ThemeMode themeMode)? themeModeToggled,
+    TResult? Function(String? translatedTo)? translatedToLanguage,
+  }) {
+    return translatedToLanguage?.call(translatedTo);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(ThemeMode themeMode)? themeModeToggled,
+    TResult Function(String? translatedTo)? translatedToLanguage,
+    required TResult orElse(),
+  }) {
+    if (translatedToLanguage != null) {
+      return translatedToLanguage(translatedTo);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ThemeModeToggled value) themeModeToggled,
+    required TResult Function(_TranslatedToLanguage value) translatedToLanguage,
+  }) {
+    return translatedToLanguage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ThemeModeToggled value)? themeModeToggled,
+    TResult? Function(_TranslatedToLanguage value)? translatedToLanguage,
+  }) {
+    return translatedToLanguage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ThemeModeToggled value)? themeModeToggled,
+    TResult Function(_TranslatedToLanguage value)? translatedToLanguage,
+    required TResult orElse(),
+  }) {
+    if (translatedToLanguage != null) {
+      return translatedToLanguage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TranslatedToLanguage implements AppEvent {
+  const factory _TranslatedToLanguage({final String? translatedTo}) =
+      _$_TranslatedToLanguage;
+
+  String? get translatedTo;
+  @JsonKey(ignore: true)
+  _$$_TranslatedToLanguageCopyWith<_$_TranslatedToLanguage> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AppState {
   bool get isLoading => throw _privateConstructorUsedError;
   ThemeMode get themeMode => throw _privateConstructorUsedError;
+  String get translateTo => throw _privateConstructorUsedError;
+  String get flag => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -324,7 +486,8 @@ abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res, AppState>;
   @useResult
-  $Res call({bool isLoading, ThemeMode themeMode});
+  $Res call(
+      {bool isLoading, ThemeMode themeMode, String translateTo, String flag});
 }
 
 /// @nodoc
@@ -342,6 +505,8 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
   $Res call({
     Object? isLoading = null,
     Object? themeMode = null,
+    Object? translateTo = null,
+    Object? flag = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -352,6 +517,14 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
               as ThemeMode,
+      translateTo: null == translateTo
+          ? _value.translateTo
+          : translateTo // ignore: cast_nullable_to_non_nullable
+              as String,
+      flag: null == flag
+          ? _value.flag
+          : flag // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -363,7 +536,8 @@ abstract class _$$_AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
       __$$_AppStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading, ThemeMode themeMode});
+  $Res call(
+      {bool isLoading, ThemeMode themeMode, String translateTo, String flag});
 }
 
 /// @nodoc
@@ -379,6 +553,8 @@ class __$$_AppStateCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = null,
     Object? themeMode = null,
+    Object? translateTo = null,
+    Object? flag = null,
   }) {
     return _then(_$_AppState(
       isLoading: null == isLoading
@@ -389,6 +565,14 @@ class __$$_AppStateCopyWithImpl<$Res>
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
               as ThemeMode,
+      translateTo: null == translateTo
+          ? _value.translateTo
+          : translateTo // ignore: cast_nullable_to_non_nullable
+              as String,
+      flag: null == flag
+          ? _value.flag
+          : flag // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -396,16 +580,28 @@ class __$$_AppStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AppState implements _AppState {
-  const _$_AppState({required this.isLoading, required this.themeMode});
+  const _$_AppState(
+      {this.isLoading = false,
+      this.themeMode = ThemeMode.system,
+      this.translateTo = "en",
+      this.flag = "gh"});
 
   @override
+  @JsonKey()
   final bool isLoading;
   @override
+  @JsonKey()
   final ThemeMode themeMode;
+  @override
+  @JsonKey()
+  final String translateTo;
+  @override
+  @JsonKey()
+  final String flag;
 
   @override
   String toString() {
-    return 'AppState(isLoading: $isLoading, themeMode: $themeMode)';
+    return 'AppState(isLoading: $isLoading, themeMode: $themeMode, translateTo: $translateTo, flag: $flag)';
   }
 
   @override
@@ -416,11 +612,15 @@ class _$_AppState implements _AppState {
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.themeMode, themeMode) ||
-                other.themeMode == themeMode));
+                other.themeMode == themeMode) &&
+            (identical(other.translateTo, translateTo) ||
+                other.translateTo == translateTo) &&
+            (identical(other.flag, flag) || other.flag == flag));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, themeMode);
+  int get hashCode =>
+      Object.hash(runtimeType, isLoading, themeMode, translateTo, flag);
 
   @JsonKey(ignore: true)
   @override
@@ -431,13 +631,19 @@ class _$_AppState implements _AppState {
 
 abstract class _AppState implements AppState {
   const factory _AppState(
-      {required final bool isLoading,
-      required final ThemeMode themeMode}) = _$_AppState;
+      {final bool isLoading,
+      final ThemeMode themeMode,
+      final String translateTo,
+      final String flag}) = _$_AppState;
 
   @override
   bool get isLoading;
   @override
   ThemeMode get themeMode;
+  @override
+  String get translateTo;
+  @override
+  String get flag;
   @override
   @JsonKey(ignore: true)
   _$$_AppStateCopyWith<_$_AppState> get copyWith =>

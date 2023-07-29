@@ -2,7 +2,9 @@ import 'package:all_nations/application/profile/profile_bloc.dart';
 import 'package:all_nations/domain/core/config/injectable.dart';
 import 'package:all_nations/domain/core/util/util.dart';
 import 'package:all_nations/domain/core/util/validator.dart';
+import 'package:all_nations/infrastructure/auth/user.model.dart';
 import 'package:all_nations/presentation/widgets/button.widget.dart';
+import 'package:all_nations/presentation/widgets/delete_account.modal.dart';
 import 'package:all_nations/presentation/widgets/text_form_field.widget.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:country_code_picker/country_code_picker.dart';
@@ -28,12 +30,24 @@ class ProfilePage extends StatefulWidget implements AutoRouteWrapper {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final GlobalKey<FormState> _formKey = getIt<GlobalKey<FormState>>();
+  final firstnameCtrl =
+      TextEditingController(text: getIt<UserModel>().firstname);
+  final lastnameCtrl = TextEditingController(text: getIt<UserModel>().lastname);
+  final emailCtrl = TextEditingController(text: getIt<UserModel>().email);
+  final churchCtrl = TextEditingController(text: getIt<UserModel>().church);
+  final String country = getIt<UserModel>().country;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<FormState> _formKey = getIt<GlobalKey<FormState>>();
-
     return BlocConsumer<ProfileBloc, ProfileState>(
       listener: (context, state) {},
+      // buildWhen: (previous, current) => current.user.uid.isNotEmpty,
       builder: (context, state) {
         return GestureDetector(
           onTap: () => unfocus(context),
@@ -75,7 +89,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: [
                   const SizedBox(height: 32),
                   TextFormFieldWidget(
-                    text: state.firstname,
+                    controller: firstnameCtrl,
                     hint: "What is your first name?",
                     label: "First Name *",
                     validator: getIt<Validator>().validateName,
@@ -87,7 +101,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   const SizedBox(height: 16),
                   TextFormFieldWidget(
-                    text: state.lastname,
+                    controller: lastnameCtrl,
                     hint: "What is your last name?",
                     label: "Last Name *",
                     validator: getIt<Validator>().validateName,
@@ -99,7 +113,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   const SizedBox(height: 16),
                   TextFormFieldWidget(
-                    text: state.email,
+                    controller: emailCtrl,
                     hint: "What is your email? *",
                     label: "Email",
                     validator: getIt<Validator>().validateEmail,
@@ -111,7 +125,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   const SizedBox(height: 16),
                   TextFormFieldWidget(
-                    text: state.church,
+                    controller: churchCtrl,
                     hint: "What is the name of your church/denomination?",
                     label: "Church/Denomination",
                     validator: getIt<Validator>().validateName,
@@ -124,14 +138,14 @@ class _ProfilePageState extends State<ProfilePage> {
                   const SizedBox(height: 16),
                   TextFormFieldWidget(
                     key: UniqueKey(),
-                    text: CountryCode.fromCountryCode(state.countryCode).name,
+                    // text: CountryCode.fromCountryCode(state.countryCode).name,
                     hint: "What country are you currently in?",
                     label: "Country *",
                     readOnly: true,
                     validator: getIt<Validator>().validateName,
                     suffixIcon: const Icon(LineAwesomeIcons.globe),
                     prefixIcon: CountryCodePicker(
-                      initialSelection: state.countryCode,
+                      initialSelection: country,
                       showDropDownButton: true,
                       showCountryOnly: true,
                       showOnlyCountryWhenClosed: true,
@@ -158,7 +172,12 @@ class _ProfilePageState extends State<ProfilePage> {
                   if (state.isEditing) const SizedBox(height: 16),
                   if (state.isEditing)
                     ButtonWidget(
-                      onTap: () {},
+                      onTap: () => showModalBottomSheet(
+                        context: context,
+                        builder: (_) {
+                          return const DeleteAccountModal();
+                        },
+                      ),
                       label: "Delete Account",
                       backgroundColor:
                           Theme.of(context).colorScheme.inversePrimary,

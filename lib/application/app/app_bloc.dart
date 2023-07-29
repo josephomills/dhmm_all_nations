@@ -11,7 +11,7 @@ part 'app_bloc.freezed.dart';
 
 @singleton
 class AppBloc extends Bloc<AppEvent, AppState> {
-  AppBloc() : super(AppState.initial()) {
+  AppBloc() : super(const AppState()) {
     on<AppEvent>((event, emit) async {
       await event.map<FutureOr<void>>(
         started: (e) async {},
@@ -19,6 +19,12 @@ class AppBloc extends Bloc<AppEvent, AppState> {
           // change state variable
           // change variable on disk
           emit(state.copyWith(themeMode: e.themeMode));
+        },
+        translatedToLanguage: (e) async {
+          emit(state.copyWith(
+            translateTo: e.translatedTo ?? "en",
+            flag: e.translatedTo == "en" ? "us" : e.translatedTo!,
+          ));
         },
       );
     });

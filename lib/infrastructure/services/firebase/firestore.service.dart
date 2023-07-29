@@ -24,10 +24,9 @@ class FirebaseFirestoreService {
         firstname: details["firstname"],
         lastname: details["lastname"],
         church: details["church"] ?? "",
-        country: details["country"],
+        country: details["country"] ?? "",
       );
 
-      print(newUser);
       // Store user model
       if (!getIt.isRegistered<UserModel>()) {
         getIt.registerSingleton<UserModel>(newUser);
@@ -47,6 +46,11 @@ class FirebaseFirestoreService {
           .collection("users")
           .doc(getIt<UserModel>().uid)
           .update(updatedUser.toJson());
+
+      if (getIt.isRegistered<UserModel>()) {
+        getIt.unregister<UserModel>();
+        getIt.registerSingleton<UserModel>(updatedUser);
+      }
 
       return const Right(unit);
     } catch (e) {
@@ -70,5 +74,14 @@ class FirebaseFirestoreService {
     return doc.exists
         ? Right(doc.data()!)
         : const Left(AuthFailure.serverError());
+  }
+
+  Future<Either<AuthFailure, Unit>> deleteProfile({required String uid}) async {
+    try {
+      await _firestore.collection("users").doc(uid).delete();
+      return const Right(unit);
+    } catch (e) {
+      return const Left(AuthFailure.serverError());
+    }
   }
 }

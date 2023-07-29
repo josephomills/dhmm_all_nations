@@ -1,14 +1,17 @@
 import 'package:all_nations/application/auth/auth/auth_bloc.dart';
+import 'package:all_nations/application/profile/profile_bloc.dart';
 import 'package:all_nations/domain/core/config/injectable.dart';
 import 'package:all_nations/presentation/navigation/autoroute.gr.dart';
 import 'package:all_nations/presentation/widgets/button.widget.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_ui_auth/firebase_ui_auth.dart' hide AuthState;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
-class LogoutWidget extends StatelessWidget {
-  const LogoutWidget({Key? key}) : super(key: key);
+class DeleteAccountModal extends StatelessWidget {
+  const DeleteAccountModal({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +36,15 @@ class LogoutWidget extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               Text(
-                "Logout?",
+                "Delete Account?",
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                       color: Theme.of(context).colorScheme.primary,
                     ),
               ),
               const SizedBox(height: 16),
-              const Text("Are you sure you want to logout?"),
+              const Text(
+                "Are you sure you want to delete your account? This action is irreversible.",
+              ),
               const SizedBox(height: 32),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -47,17 +52,22 @@ class LogoutWidget extends StatelessWidget {
                   ButtonWidget(
                     isLoading: false,
                     label: "Cancel",
-                    widthFactor: 0.35,
+                    widthFactor: 0.4,
                     onTap: state.isLoading ? null : () => context.router.pop(),
                   ),
                   const SizedBox(width: 16),
                   ButtonWidget(
                     isLoading: state.isLoading,
-                    label: "Proceed",
-                    widthFactor: 0.35,
-                    onTap: () {
-                      // Logout
-                      getIt<AuthBloc>().add(const AuthEvent.loggedOut());
+                    label: "Delete Accouunt",
+                    widthFactor: 0.4,
+                    onTap: () async {
+                      context
+                          .read<ProfileBloc>()
+                          .add(const ProfileEvent.deleteAccountConfirmed());
+                      await FirebaseUIAuth.signOut(
+                        context: context,
+                        auth: FirebaseAuth.instance,
+                      );
                       // Close bottom sheet & go to login
                       context.router.replaceAll([const LoginRoute()]);
                     },

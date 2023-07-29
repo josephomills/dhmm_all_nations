@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:all_nations/domain/auth/auth.facade.dart';
+import 'package:all_nations/domain/auth/auth.failure.dart';
 import 'package:all_nations/domain/core/config/injectable.dart';
 import 'package:all_nations/infrastructure/auth/user.model.dart';
 import 'package:bloc/bloc.dart';
@@ -17,23 +18,19 @@ part 'profile_state.dart';
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final AuthFacade _authFacade;
 
-  ProfileBloc(this._authFacade) : super(const ProfileState()) {
+  ProfileBloc(this._authFacade) : super(ProfileState.initial()) {
     on<ProfileEvent>((event, emit) async {
       await event.map<FutureOr<void>>(
         started: (e) async {
-          final currentUser =
-              _authFacade.currentUser.getOrElse(() => const UserModel());
-          print(currentUser);
           emit(state.copyWith(
             validateFields: false,
             isLoading: false,
             updatedOption: none(),
-            firstname: currentUser.firstname,
-            lastname: currentUser.lastname,
-            countryCode: currentUser.country,
-            church: currentUser.church,
-            email: currentUser.email,
-            user: currentUser,
+            firstname: state.user.firstname,
+            lastname: state.user.lastname,
+            countryCode: state.user.country,
+            church: state.user.church,
+            email: state.user.email,
           ));
         },
         editingToggled: (e) =>
@@ -93,6 +90,21 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
             lastname: e.lastname, updatedOption: const Some(true))),
         countryDialogToggled: (e) =>
             emit(state.copyWith(showCountryDialog: !state.showCountryDialog)),
+        deleteAccountConfirmed: (e) async {
+          emit(state.copyWith(isLoading: true));
+          final failureOrUnit = await _authFacade.deleteCurrentUser();
+          failureOrUnit.fold(
+            (failure) {
+              emit(state.copyWith(
+                isLoading: false,
+                deleteFailureOption: some(failure),
+              ));
+            },
+            (unit) => emit(state.copyWith(
+              isLoading: false,
+            )),
+          );
+        },
       );
     });
   }
