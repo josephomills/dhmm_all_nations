@@ -65,7 +65,7 @@ class ImageTextPostWidget extends StatelessWidget {
 
   Widget buildCaption(BuildContext context) {
     return Linkify(
-      text: ]=post.caption!,
+      text: post.caption!,
       linkifiers: const [UrlLinkifier(), EmailLinkifier()],
       maxLines: 2,
       overflow: TextOverflow.ellipsis,
