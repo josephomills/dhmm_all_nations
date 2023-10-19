@@ -43,7 +43,7 @@ class DeleteAccountModal extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               const Text(
-                "Are you sure you want to delete your account? This action is irreversible.",
+                "Are you sure you want to delete your account?\nNB: This action is irreversible.",
               ),
               const SizedBox(height: 32),
               Row(
